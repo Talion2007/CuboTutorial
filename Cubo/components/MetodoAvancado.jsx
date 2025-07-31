@@ -3,33 +3,32 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
-export default function TelaInicio() {
+export default function MetodoAvancado() {
 
   const navigation = useNavigation();
 
   return (
     <ScrollView style={estilos.conteudoScroll} contentContainerStyle={estilos.conteudoCentralizado}>
-      <Image source={require('../assets/wallpaper_inicio.jpg')} style={estilos.imagemLogo} />
-      <Text style={estilos.titulo}>tudo sobre cubo mágico</Text>
-      <Text style={estilos.texto}>Um portal completo para você aprender tudo sobre este incrível quebra-cabeça, do zero ao avançado. O Cubo Mágico é o brinquedo mais vendido do mundo e um dos quebra-cabeças mais intrigantes da história, com mais de 43 quintilhões de possibilidades e apenas uma solução. Descubra tudo aqui no CuboTutorial!</Text>
-
-      <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Estrutura')}>
-        <Image source={require('../assets/Estrutura.png')} style={estilos.imagemCard} />
-        <Text style={estilos.cardTitulo}>Estrutura do Cubo</Text>
-        <Text style={estilos.cardDescricao}>Conheça as peças e a anatomia do cubo mágico.</Text>
-      </TouchableOpacity>
+      <Text style={estilos.titulo}> Método Avançado</Text>
+      <Text style={estilos.texto}> Aqui você pode encontrar informações sobre o método avançado de resolução do cubo mágico.</Text>
 
       {/* Card para a tela "Movimentação" */}
-      <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Movimentacao')}>
-        <Image source={require('../assets/Movimentacao.png')} style={estilos.imagemCard} />
-        <Text style={estilos.cardTitulo}>Movimentação</Text>
-        <Text style={estilos.cardDescricao}>Aprenda os movimentos básicos e avançados do cubo.</Text>
+      <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('')}>
+        <Image source={require('../assets/F2L.png')} style={estilos.imagemCard} />
+        <Text style={estilos.cardTitulo}>F2L - 2 Camadas</Text>
+        <Text style={estilos.cardDescricao}> Aqui você pode encontrar informações sobre as First Two Layers.</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('MetodoBasico')}>
-        <Image source={require('../assets/MetodoBasico.png')} style={estilos.imagemCard} />
-        <Text style={estilos.cardTitulo}>Método Básico</Text>
-        <Text style={estilos.cardDescricao}>O primeiro passo para resolver o cubo mágico.</Text>
+      <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('')}>
+        <Image source={require('../assets/OLL.png')} style={estilos.imagemCard} />
+        <Text style={estilos.cardTitulo}> OLL - Orientação</Text>
+        <Text style={estilos.cardDescricao}> Aqui você pode encontrar informações sobre as  OrientationLast Layers.</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('')}>
+        <Image source={require('../assets/PLL.png')} style={estilos.imagemCard} />
+        <Text style={estilos.cardTitulo}>PLL  - Permutação</Text>
+        <Text style={estilos.cardDescricao}> Aqui você pode encontrar informações sobre as Permutation Last Layers.</Text>
       </TouchableOpacity>
 
       <View style={estilos.footer}>
@@ -121,7 +120,7 @@ const estilos = StyleSheet.create({
     padding: 25,
     paddingBottom: 75,
     width: '110%',
-  elevation: 8, // Sombra para dar profundidade
+    elevation: 8, // Sombra para dar profundidade
     backgroundColor: '#fbfbffff', // Fundo branco para contraste
     textAlign: 'center',
   },
