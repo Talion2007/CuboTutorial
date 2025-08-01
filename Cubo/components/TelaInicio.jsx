@@ -10,7 +10,7 @@ export default function TelaInicio() {
   return (
     <ScrollView style={estilos.conteudoScroll} contentContainerStyle={estilos.conteudoCentralizado}>
       <Image source={require('../assets/wallpaper_inicio.jpg')} style={estilos.imagemLogo} />
-      <Text style={estilos.titulo}>tudo sobre cubo mágico</Text>
+      <Text style={estilos.titulo}>Tudo sobre Cubo Mágico</Text>
       <Text style={estilos.texto}>Um portal completo para você aprender tudo sobre este incrível quebra-cabeça, do zero ao avançado. O Cubo Mágico é o brinquedo mais vendido do mundo e um dos quebra-cabeças mais intrigantes da história, com mais de 43 quintilhões de possibilidades e apenas uma solução. Descubra tudo aqui no CuboTutorial!</Text>
 
       <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Estrutura')}>

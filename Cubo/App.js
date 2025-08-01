@@ -12,6 +12,7 @@ import MetodoBasico from './components/MetodoBasico';
 import MetodoAvancado from './components/MetodoAvancado';
 import ExtraAvancado from './components/ExtraAvancado';
 import Metodo2x2 from './components/Metodo2x2';
+import TelaIndisponivel from './components/TelaIndisponivel'; // Importando a tela de indisponibilidade
 
 const Drawer = createDrawerNavigator();
 // Componentes das telas
@@ -90,7 +91,7 @@ export default function App() {
         <Drawer.Screen
           name="Estrutura"
           component={Estrutura}
-          options={{ title: 'Estrutura do Cubo' }}
+          options={{ title: 'Estrutura do Cubo', }}
         />
         <Drawer.Screen
           name="Movimentacao"
@@ -109,13 +110,23 @@ export default function App() {
         />
         <Drawer.Screen
           name="ExtraAvancado"
-          component={ExtraAvancado}
+          component={TelaIndisponivel}
           options={{ title: 'Extra Avançado' }}
         />
         <Drawer.Screen
           name="Metodo2x2"
-          component={Metodo2x2}
-          options={{ title: 'Método 2x2' }}
+          component={TelaIndisponivel}
+          options={{
+            title: 'Metodo 2x2'
+          }}
+        />
+        <Drawer.Screen
+          name="TelaIndisponivel"
+          component={TelaIndisponivel}
+          options={{
+            title: 'Tela Indisponível',
+            drawerItemStyle: { display: 'none' } // Esconde do menu
+          }}
         />
       </Drawer.Navigator>
     </NavigationContainer>
