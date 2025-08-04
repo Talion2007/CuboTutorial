@@ -37,7 +37,7 @@ export default function App() {
 
           headerRight: () => (
             <Image
-              source={require('./assets/cube_icon.png')} // <-- SEU ARQUIVO DE IMAGEM AQUI
+              source={require('./assets/icon.png')} // <-- SEU ARQUIVO DE IMAGEM AQUI
               style={styles.headerIconRight}
             />
           ),
@@ -110,7 +110,7 @@ export default function App() {
         />
         <Drawer.Screen
           name="ExtraAvancado"
-          component={TelaIndisponivel}
+          component={ExtraAvancado}
           options={{ title: 'Extra Avançado' }}
         />
         <Drawer.Screen
