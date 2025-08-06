@@ -3,48 +3,47 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
-export default function Estrutura() {
+import Footer from '../components/Footer';
+
+export default function ExtraAvancado() {
 
   const navigation = useNavigation();
 
   return (
     <ScrollView style={estilos.conteudoScroll} contentContainerStyle={estilos.conteudoCentralizado}>
-      <Text style={estilos.titulo}>Estrutura do Cubo</Text>
+      <Text style={estilos.titulo}>Fórmulas Extra Avançadas</Text>
 
       <Text style={estilos.texto}>
-        Antes de aprender os métodos de resolução, é fundamental conhecer a estrutura do cubo mágico. Saber como ele é formado e como suas peças se movem ajudará você a entender melhor cada passo da montagem.
+        Após dominar os métodos básicos e avançados de resolução, é comum os cubistas explorarem fórmulas extras para otimizar ainda mais seus tempos e movimentos.
       </Text>
 
       <Text style={estilos.texto}>
-        Entender isso evita frustrações comuns de iniciantes, como tentar resolver o cubo de forma errada ou acreditar que há algo errado quando, na verdade, é só uma má compreensão da estrutura.
-      </Text>
-
-      <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
-        <Image source={require('../assets/MovimentacaoBasica.png')} style={estilos.imagemCard} />
-        <Text style={estilos.cardTitulo}>Peças do Cubo</Text>
-        <Text style={estilos.cardDescricao}>Aprenda as peças que compõem o cubo mágico.</Text>
-      </TouchableOpacity>
-
-      <Text style={estilos.texto}>
-        Além disso, existem alguns "casos impossíveis" que impedem a resolução do cubo. Esses casos não acontecem naturalmente — normalmente são resultado de desmontagem incorreta ou troca de adesivos.
-      </Text>
-
-      <Text style={estilos.texto}>
-        Conhecer esses casos pode te salvar de horas tentando resolver um cubo que, na verdade, está em uma configuração inválida!
+        Técnicas como VHLS, COLL e Winter Variation são usadas principalmente por quem deseja competir ou simplesmente resolver o cubo com mais eficiência e estilo. Elas permitem combinar passos e reduzir o número de movimentos.
       </Text>
 
       <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
-        <Image source={require('../assets/MovimentacaoAvancada.png')} style={estilos.imagemCard} />
-        <Text style={estilos.cardTitulo}>Casos Impossíveis</Text>
-        <Text style={estilos.cardDescricao}>Aprenda a identificar casos impossíveis no cubo mágico.</Text>
+        <Image source={require('../assets/VHLS.png')} style={estilos.imagemCard} />
+        <Text style={estilos.cardTitulo}>VHLS</Text>
+        <Text style={estilos.cardDescricao}>Combine a orientação da última camada com a resolução do slot frontal.</Text>
       </TouchableOpacity>
 
-      <Text style={estilos.texto}>Se você já está familiarizado com a estrutura, confira a seção de movimentação, muito importante para a resolução do Cubo Mágico.</Text>
+      <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
+        <Image source={require('../assets/COLL.png')} style={estilos.imagemCard} />
+        <Text style={estilos.cardTitulo}>COLL</Text>
+        <Text style={estilos.cardDescricao}>Oriente e permute a última camada de cantos de uma vez só.</Text>
+      </TouchableOpacity>
 
-      <View style={estilos.footer}>
-        <Text style={{ color: '#666', textAlign: 'center' }}>© 2025 CuboTutorial. Todos os direitos reservados.</Text>
-        <Text style={{ color: '#666' }}>Desenvolvido por Felipe Cagnin - Ver 1.2.0</Text>
-      </View>
+      <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
+        <Image source={require('../assets/WinterVariation.png')} style={estilos.imagemCard} />
+        <Text style={estilos.cardTitulo}>Winter Variation</Text>
+        <Text style={estilos.cardDescricao}>Finaliza o F2L e orienta a última camada sem afetar os cantos.</Text>
+      </TouchableOpacity>
+
+      <Text style={estilos.texto}>
+        Essas técnicas não são obrigatórias, mas podem levar sua resolução a um novo nível. Dominar essas fórmulas exige prática e compreensão de padrões mais sutis, mas o ganho em fluidez compensa!
+      </Text>
+
+      <Footer/>
     </ScrollView>
   );
 }

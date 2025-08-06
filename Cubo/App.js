@@ -5,14 +5,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Image, StyleSheet, Platform } from 'react-native'; // <--- MANTENHA O 'Platform' AQUI
 
-import TelaInicio from './components/TelaInicio';
-import Estrutura from './components/Estrutura';
-import Movimentacao from './components/Movimentacao';
-import MetodoBasico from './components/MetodoBasico';
-import MetodoAvancado from './components/MetodoAvancado';
-import ExtraAvancado from './components/ExtraAvancado';
-import Metodo2x2 from './components/Metodo2x2';
-import TelaIndisponivel from './components/TelaIndisponivel'; // Importando a tela de indisponibilidade
+import TelaInicio from './screens/TelaInicio';
+import Estrutura from './screens/Estrutura';
+import Movimentacao from './screens/Movimentacao';
+import MetodoBasico from './screens/MetodoBasico';
+import MetodoAvancado from './screens/MetodoAvancado';
+import ExtraAvancado from './screens/ExtraAvancado';
+import Metodo2x2 from './screens/Metodo2x2';
+import TelaIndisponivel from './screens/TelaIndisponivel'; // Importando a tela de indisponibilidade
 
 const Drawer = createDrawerNavigator();
 // Componentes das telas
