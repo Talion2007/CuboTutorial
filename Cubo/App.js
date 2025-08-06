@@ -135,9 +135,8 @@ export default function App() {
 
 const styles = StyleSheet.create({
   headerIconRight: {
-    width: 30, // Ajuste o tamanho conforme necessário
-    height: 30, // Ajuste o tamanho conforme necessário
-    marginRight: 15, // Espaçamento da borda direita
+    width: 70, // Ajuste o tamanho conforme necessário
+    height: 70, // Ajuste o tamanho conforme necessário
     resizeMode: 'contain', // Garante que a imagem se ajuste ao tamanho sem cortar
   },
 });

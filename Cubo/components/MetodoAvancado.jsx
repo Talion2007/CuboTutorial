@@ -48,7 +48,7 @@ export default function MetodoAvancado() {
 
       <View style={estilos.footer}>
         <Text style={{ color: '#666' }}>© 2025 CuboTutorial. Todos os direitos reservados.</Text>
-        <Text style={{ color: '#666' }}>Desenvolvido por Felipe Cagnin</Text>
+        <Text style={{ color: '#666' }}>Desenvolvido por Felipe Cagnin - Ver 1.2.0</Text>
       </View>
 
     </ScrollView>
