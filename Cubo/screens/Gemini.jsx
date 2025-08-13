@@ -113,7 +113,7 @@ export default function Gemini() {
                 }}>
                 <View style={estilos.centeredView}>
                     <View style={estilos.modalView}>
-                        <Text style={estilos.titulo}>Atenção</Text>
+                        <Text style={estilos.titulo}>Atenção!</Text>
                         <Text style={estilos.textoDescritivoModal}>
                             O ChatBot Online é uma ferramenta experimental baseada na API Gemini do Google!
                         </Text>
