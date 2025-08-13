@@ -4,7 +4,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Image, StyleSheet, Platform } from 'react-native'; // <--- MANTENHA O 'Platform' AQUI
-
+import ChatBot from './screens/ChatBot';
 import TelaInicio from './screens/TelaInicio';
 import Estrutura from './screens/Estrutura';
 import Movimentacao from './screens/Movimentacao';
@@ -120,6 +120,14 @@ export default function App() {
             title: 'Metodo 2x2'
           }}
         />
+ <Drawer.Screen
+          name="ChatBot"
+          component={ChatBot}
+          options={{
+            title: 'ChatBot'
+          }}
+        />
+
         <Drawer.Screen
           name="TelaIndisponivel"
           component={TelaIndisponivel}

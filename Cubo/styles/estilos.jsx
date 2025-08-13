@@ -85,11 +85,61 @@ const estilos = StyleSheet.create({
   elevation: 8, // Sombra para dar profundidade
     backgroundColor: '#fbfbffff', // Fundo branco para contraste
     textAlign: 'center',
+    minHeight: 125,
   },
     SafeArea: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fbfbffff',
   },
+    mensagensContainer: { flex: 1, marginBottom: 20, minHeight: '60%' },
+  mensagem: {
+    padding: 12,
+    marginVertical: 4,
+    borderRadius: 18,
+    maxWidth: '90%',
+    marginBottom: 10,
+  },
+  mensagemPropria: {
+    backgroundColor: '#34495e',
+    alignSelf: 'flex-end'
+  },
+  mensagemOutro: {
+    backgroundColor: '#bfddfbff', // Fundo branco para contraste
+    textAlign: 'center',
+    alignSelf: 'flex-start',
+  },
+  textoMensagem: {
+     color: 'white', fontSize: 16 
+    },
+  inputContainer: {
+    flexDirection: 'row',
+    padding: 10,
+    paddingTop: 0,
+    paddingBottom: 0,
+    marginBottom: 0,
+    alignItems: 'flex-end',
+  },
+  inputMensagem: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 20,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    marginRight: 10,
+    maxHeight:  60,
+    fontSize: 16,
+  },
+  botaoEnviar: {
+    backgroundColor: '#34495e',
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  botaoDesabilitado: { backgroundColor: '#ccc' },
+  textoBotao: { fontSize: 18 }
 });
 
 export default estilos;
