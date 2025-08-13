@@ -139,7 +139,42 @@ const estilos = StyleSheet.create({
     alignItems: 'center'
   },
   botaoDesabilitado: { backgroundColor: '#ccc' },
-  textoBotao: { fontSize: 18 }
+  textoBotao: { fontSize: 18 },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0.1)', // ← deixa o fundo escuro semiopaco
+  },
+modalView: {
+    width: '80%',
+    margin: 20,
+    backgroundColor: '#fbfbffff',
+    borderRadius: 15,
+    padding: 35,
+    alignItems: 'center',
+    elevation: 5,
+},
+botaoModal: {
+    borderRadius: 10,
+    padding: 10,
+    elevation: 2,
+    backgroundColor: '#34495e',
+    marginTop: 20,
+},
+textoModal: {
+    color: '#fbfbffff',
+    textAlign: 'center',
+    fontSize: 16,
+},
+textoDescritivoModal: {
+  fontSize: 16,
+  marginBottom: 5,
+  marginTop: 5,
+  textAlign: 'justify',
+  width: '85%',
+  color: '#666'
+},
 });
 
 export default estilos;

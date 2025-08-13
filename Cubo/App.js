@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Image, StyleSheet, Platform } from 'react-native'; // <--- MANTENHA O 'Platform' AQUI
 import ChatBot from './screens/ChatBot';
+import Gemini from './screens/Gemini'
 import TelaInicio from './screens/TelaInicio';
 import Estrutura from './screens/Estrutura';
 import Movimentacao from './screens/Movimentacao';
@@ -120,13 +121,21 @@ export default function App() {
             title: 'Metodo 2x2'
           }}
         />
- <Drawer.Screen
-          name="ChatBot"
+        <Drawer.Screen
+          name="ChatBot Local"
           component={ChatBot}
           options={{
-            title: 'ChatBot'
+            title: 'ChatBot Local'
           }}
         />
+        <Drawer.Screen
+          name="ChatBot Online"
+          component={Gemini}
+          options={{
+            title: 'ChatBot Online'
+          }}
+        />
+
 
         <Drawer.Screen
           name="TelaIndisponivel"
