@@ -13,25 +13,30 @@ export default function MetodoAvancado() {
     <SafeAreaView style={estilos.SafeArea}>
       <ScrollView style={estilos.conteudoScroll} contentContainerStyle={estilos.conteudoCentralizado}>
         <Text style={estilos.titulo}> Método Avançado</Text>
-        <Text style={estilos.texto}>Os passos de um cuber que resolve o cubo em 1 minuto é o mesmo do que resolve em menos de 10 segundos, porém, o que faz no menor tempo utiliza diversos atalhos que fazem parte do método avançado, que você provavelmente já ouviu falar como Fridrich ou então a pela sigla CFOP, composta pelo Cross (a mesma do Método Básico), F2L, OLL, e PLL, que significam: </Text>
+        <Text style={estilos.texto}>Os passos de um cuber que resolve o cubo em 1 minuto é o mesmo do que resolve em menos de 10 segundos, porém, o que faz no menor tempo utiliza diversos atalhos que fazem parte do método avançado, que você provavelmente já ouviu falar como Fridrich ou então a pela sigla CFOP, composta pelo Cross, F2L, OLL, e PLL, que significam: </Text>
 
-        {/* Card para a tela "Movimentação" */}
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
+          <Image source={require('../assets/Capas/Cruz.png')} style={estilos.imagemCard} />
+          <Text style={estilos.cardTitulo}>Cross - Treino de Cruz</Text>
+          <Text style={estilos.cardDescricao}>Aqui você pode encontrar informações sobre treino de Cruz.</Text>
+        </TouchableOpacity>
+
         <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
           <Image source={require('../assets/Capas/F2L.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>F2L - 2 Camadas</Text>
-          <Text style={estilos.cardDescricao}> Aqui você pode encontrar informações sobre as First Two Layers.</Text>
+          <Text style={estilos.cardDescricao}>Aqui você pode encontrar informações sobre as First Two Layers.</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
           <Image source={require('../assets/Capas/OLL.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}> OLL - Orientação</Text>
-          <Text style={estilos.cardDescricao}> Aqui você pode encontrar informações sobre as  OrientationLast Layers.</Text>
+          <Text style={estilos.cardDescricao}>Aqui você pode encontrar informações sobre as Orientation Last Layers.</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
           <Image source={require('../assets/Capas/PLL.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>PLL  - Permutação</Text>
-          <Text style={estilos.cardDescricao}> Aqui você pode encontrar informações sobre as Permutation Last Layers.</Text>
+          <Text style={estilos.cardDescricao}>Aqui você pode encontrar informações sobre as Permutation Last Layers.</Text>
         </TouchableOpacity>
 
 
