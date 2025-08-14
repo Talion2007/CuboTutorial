@@ -174,8 +174,20 @@ export default function Gemini() {
                             </View>
                         ))}
                         {loading && (
-                            <View style={estilos.mensagemOutro}>
-                                <Text style={[estilos.textoMensagem, estilos.mensagemOutro]}>🤖 Pensando...</Text>
+                            <View
+                                style={[
+                                    estilos.mensagem,
+                                    estilos.mensagemOutro
+                                ]}
+                            >
+                                <Text
+                                    style={[
+                                        estilos.textoMensagem,
+                                        { color: '#222' }
+                                    ]}
+                                >
+                                    Maquina pensando...
+                                </Text>
                             </View>
                         )}
                     </ScrollView>
