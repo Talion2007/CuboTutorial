@@ -70,12 +70,26 @@ export default function ChatBot() {
     else if (textoUsuario.toLowerCase().includes('outros')) {
       resposta = 'Outros tópicos ainda estão em desenvolvimento. Fique ligado para mais atualizações! 😉';
     }
+    else if (textoUsuario.toLowerCase().includes('ajuda') || textoUsuario.toLowerCase().includes('ajuda')) {
+      resposta = 'Para obter ajuda, você pode consultar as páginas do tutorial ou perguntar sobre tópicos específicos. Se precisar de mais assistência, entre em contato com o suporte! 😊';
+    }
+    else if (textoUsuario.toLowerCase().includes('obrigado') || textoUsuario.toLowerCase().includes('obrigada')) {
+      resposta = 'De nada! Estou aqui para ajudar! Se tiver mais perguntas, é só falar! 😄';
+    }
+    else if (textoUsuario.toLowerCase().includes('tchau') || textoUsuario.toLowerCase().includes('adeus')) {
+      resposta = 'Tchau! Espero que tenha gostado do nosso ChatBot! Se precisar de mais ajuda, é só voltar! Até mais! 👋';
+    }
     else {
       resposta = 'Não entendi... pode repetir? 🤔';
     }
 
     if (textoUsuario.toLowerCase().includes('limpar')) {
       setMensagens([{ id: 1, texto: 'Olá, eu sou o ChatBot, basta dizer "Oi" para iniciar! 😁.', proprio: false }]);
+      return;
+    }
+
+    if (textoUsuario.toLowerCase().includes('giovanna carvalho cagnin')) {
+      setMensagens([{ id: 1, texto: 'Você é o amor da minha vida, Gigizinha! 😘', proprio: false }]);
       return;
     }
 

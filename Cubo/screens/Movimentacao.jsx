@@ -23,7 +23,7 @@ export default function Movimentacao() {
       </Text>
 
       <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
-        <Image source={require('../assets/MovimentacaoBasica.png')} style={estilos.imagemCard} />
+        <Image source={require('../assets/Capas/MovimentacaoBasica.png')} style={estilos.imagemCard} />
         <Text style={estilos.cardTitulo}>Movimentação Básica</Text>
         <Text style={estilos.cardDescricao}>Aprenda as movimentações básicas do cubo mágico.</Text>
       </TouchableOpacity>
@@ -37,7 +37,7 @@ export default function Movimentacao() {
       </Text>
 
       <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
-        <Image source={require('../assets/MovimentacaoAvancada.png')} style={estilos.imagemCard} />
+        <Image source={require('../assets/Capas/MovimentacaoAvancada.png')} style={estilos.imagemCard} />
         <Text style={estilos.cardTitulo}>Movimentação Avançada</Text>
         <Text style={estilos.cardDescricao}>Aprenda as movimentações avançadas do cubo mágico.</Text>
       </TouchableOpacity>

@@ -13,7 +13,9 @@ import MetodoBasico from './screens/MetodoBasico';
 import MetodoAvancado from './screens/MetodoAvancado';
 import ExtraAvancado from './screens/ExtraAvancado';
 import Metodo2x2 from './screens/Metodo2x2';
+
 import TelaIndisponivel from './screens/TelaIndisponivel'; // Importando a tela de indisponibilidade
+import PecasCubo3x3 from './screens/Pecas';
 
 const Drawer = createDrawerNavigator();
 // Componentes das telas
@@ -116,7 +118,7 @@ export default function App() {
         />
         <Drawer.Screen
           name="Metodo2x2"
-          component={TelaIndisponivel}
+          component={Metodo2x2}
           options={{
             title: 'Metodo 2x2'
           }}
@@ -145,6 +147,15 @@ export default function App() {
             drawerItemStyle: { display: 'none' } // Esconde do menu
           }}
         />
+        <Drawer.Screen
+          name="Pecas"
+          component={PecasCubo3x3}
+          options={{
+            title: 'Peças do Cubo',
+            drawerItemStyle: { display: 'none' } // Esconde do menu
+          }}
+        />
+
       </Drawer.Navigator>
     </NavigationContainer>
   );

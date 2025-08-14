@@ -24,19 +24,19 @@ export default function ExtraAvancado() {
       </Text>
 
       <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
-        <Image source={require('../assets/VHLS.png')} style={estilos.imagemCard} />
+        <Image source={require('../assets/Capas/VHLS.png')} style={estilos.imagemCard} />
         <Text style={estilos.cardTitulo}>VHLS</Text>
         <Text style={estilos.cardDescricao}>Combine a orientação da última camada com a resolução do slot frontal.</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
-        <Image source={require('../assets/COLL.png')} style={estilos.imagemCard} />
+        <Image source={require('../assets/Capas/COLL.png')} style={estilos.imagemCard} />
         <Text style={estilos.cardTitulo}>COLL</Text>
         <Text style={estilos.cardDescricao}>Oriente e permute a última camada de cantos de uma vez só.</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
-        <Image source={require('../assets/WinterVariation.png')} style={estilos.imagemCard} />
+        <Image source={require('../assets/Capas/WinterVariation.png')} style={estilos.imagemCard} />
         <Text style={estilos.cardTitulo}>Winter Variation</Text>
         <Text style={estilos.cardDescricao}>Finaliza o F2L e orienta a última camada sem afetar os cantos.</Text>
       </TouchableOpacity>

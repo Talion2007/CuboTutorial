@@ -62,6 +62,17 @@ const estilos = StyleSheet.create({
     backgroundColor: '#fbfbffff', // Fundo branco para contraste
     // Estilos de sombra aprimorados para um visual mais profissional
   },
+  cardNeutro: {
+    borderRadius: 12, // Bordas mais arredondadas
+    padding: 20,
+    marginVertical: 10, // Espaço vertical entre os cards
+    width: '85%', // Ligeiramente mais largo para preencher a tela
+    maxWidth: 400, // Limite a largura máxima para tablets
+    alignItems: 'center',
+    justifyContent: 'center', // Centraliza o conteúdo verticalmente
+    backgroundColor: '#fbfbffff', // Fundo branco para contraste
+    // Estilos de sombra aprimorados para um visual mais profissional
+  },
   cardTitulo: {
     fontSize: 20,
     fontWeight: 'bold',

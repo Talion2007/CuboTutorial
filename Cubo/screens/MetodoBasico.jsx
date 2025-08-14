@@ -19,7 +19,7 @@ export default function MetodoBasico() {
       <Text style={estilos.texto}>Resolver o Cubo Mágico nada mais é do que seguir uma receita. São 8 passos divididos em algumas fórmulas que são muito mais simples do que você imagina:</Text>
 
       <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
-        <Image source={require('../assets/MovimentacaoBasica.png')} style={estilos.imagemCard} />
+        <Image source={require('../assets/Capas/MetodoBasico.png')} style={estilos.imagemCard} />
         <Text style={estilos.cardTitulo}>Fórmulas</Text>
         <Text style={estilos.cardDescricao}>Aprenda as fórmulas básicas para resolver o cubo mágico.</Text>
       </TouchableOpacity>
@@ -28,7 +28,7 @@ export default function MetodoBasico() {
 
 
       <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
-        <Image source={require('../assets/ExtraBasico.png')} style={estilos.imagemCard} />
+        <Image source={require('../assets/Capas/ExtraBasico.png')} style={estilos.imagemCard} />
         <Text style={estilos.cardTitulo}>Extra Básico</Text>
         <Text style={estilos.cardDescricao}> Aprenda a movimentos além do básico para resolver o cubo mágico.</Text>
       </TouchableOpacity>

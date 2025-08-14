@@ -23,8 +23,8 @@ export default function Estrutura() {
         Entender isso evita frustrações comuns de iniciantes, como tentar resolver o cubo de forma errada ou acreditar que há algo errado quando, na verdade, é só uma má compreensão da estrutura.
       </Text>
 
-      <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
-        <Image source={require('../assets/MovimentacaoBasica.png')} style={estilos.imagemCard} />
+      <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Pecas')}>
+        <Image source={require('../assets/Capas/Pecas.png')} style={estilos.imagemCard} />
         <Text style={estilos.cardTitulo}>Peças do Cubo</Text>
         <Text style={estilos.cardDescricao}>Aprenda as peças que compõem o cubo mágico.</Text>
       </TouchableOpacity>
@@ -38,7 +38,7 @@ export default function Estrutura() {
       </Text>
 
       <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
-        <Image source={require('../assets/MovimentacaoAvancada.png')} style={estilos.imagemCard} />
+        <Image source={require('../assets/Capas/CasosImpossiveis.png')} style={estilos.imagemCard} />
         <Text style={estilos.cardTitulo}>Casos Impossíveis</Text>
         <Text style={estilos.cardDescricao}>Aprenda a identificar casos impossíveis no cubo mágico.</Text>
       </TouchableOpacity>

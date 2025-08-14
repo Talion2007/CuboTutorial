@@ -17,19 +17,19 @@ export default function MetodoAvancado() {
 
         {/* Card para a tela "Movimentação" */}
         <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
-          <Image source={require('../assets/F2L.png')} style={estilos.imagemCard} />
+          <Image source={require('../assets/Capas/F2L.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>F2L - 2 Camadas</Text>
           <Text style={estilos.cardDescricao}> Aqui você pode encontrar informações sobre as First Two Layers.</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
-          <Image source={require('../assets/OLL.png')} style={estilos.imagemCard} />
+          <Image source={require('../assets/Capas/OLL.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}> OLL - Orientação</Text>
           <Text style={estilos.cardDescricao}> Aqui você pode encontrar informações sobre as  OrientationLast Layers.</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
-          <Image source={require('../assets/PLL.png')} style={estilos.imagemCard} />
+          <Image source={require('../assets/Capas/PLL.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>PLL  - Permutação</Text>
           <Text style={estilos.cardDescricao}> Aqui você pode encontrar informações sobre as Permutation Last Layers.</Text>
         </TouchableOpacity>
