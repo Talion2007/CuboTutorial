@@ -1,20 +1,35 @@
 import 'react-native-gesture-handler';
-import { Text, SafeAreaView, Image, TouchableOpacity } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
+import { Text, SafeAreaView, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import React, { useRef, useCallback } from 'react';
 import estilos from '../styles/estilos';
 import Footer from '../components/Footer';
 
 export default function TelaInicio() {
-
   const navigation = useNavigation();
+  const scrollRef = useRef(null);
+
+  // Quando a tela ganha foco, volta ao topo
+  useFocusEffect(
+    useCallback(() => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollTo({ y: 0, animated: true });
+      }
+    }, [])
+  );
 
   return (
     <SafeAreaView style={estilos.SafeArea}>
-      <ScrollView style={estilos.conteudoScroll} contentContainerStyle={estilos.conteudoCentralizado}>
+      <ScrollView
+        ref={scrollRef}
+        style={estilos.conteudoScroll}
+        contentContainerStyle={estilos.conteudoCentralizado}
+      >
         <Image source={require('../assets/wallpaper_inicio.jpg')} style={estilos.imagemLogo} />
         <Text style={estilos.titulo}>Tudo sobre Cubo Mágico</Text>
-        <Text style={estilos.texto}>Um portal completo para você aprender tudo sobre este incrível quebra-cabeça, do zero ao avançado. O Cubo Mágico é o brinquedo mais vendido do mundo e um dos quebra-cabeças mais intrigantes da história, com mais de 43 quintilhões de possibilidades e apenas uma solução. Descubra tudo aqui no CuboTutorial!</Text>
+        <Text style={estilos.texto}>
+          Um portal completo para você aprender tudo sobre este incrível quebra-cabeça, do zero ao avançado. O Cubo Mágico é o brinquedo mais vendido do mundo e um dos quebra-cabeças mais intrigantes da história, com mais de 43 quintilhões de possibilidades e apenas uma solução. Descubra tudo aqui no CuboTutorial!
+        </Text>
 
         <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Estrutura')}>
           <Image source={require('../assets/Capas/Pecas.png')} style={estilos.imagemCard} />
@@ -22,7 +37,6 @@ export default function TelaInicio() {
           <Text style={estilos.cardDescricao}>Conheça as peças e a anatomia do cubo mágico.</Text>
         </TouchableOpacity>
 
-        {/* Card para a tela "Movimentação" */}
         <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Movimentacao')}>
           <Image source={require('../assets/Capas/MovimentacaoBasica.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Movimentação</Text>
@@ -43,7 +57,6 @@ export default function TelaInicio() {
           <Text style={estilos.cardDescricao}>Conheça o método avançado para resolver o cubo.</Text>
         </TouchableOpacity>
 
-        {/* Card para a tela "Movimentação" */}
         <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('ExtraAvancado')}>
           <Image source={require('../assets/Capas/ExtraAvancado.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Extra Avançado</Text>
@@ -56,8 +69,15 @@ export default function TelaInicio() {
           <Text style={estilos.cardDescricao}>Aprenda do básico ao avançado para o cubo 2x2.</Text>
         </TouchableOpacity>
 
-        <Footer />
+        <Text style={estilos.texto}>Explore também nossos CuboChats e para perguntar e tirar dúvidas!</Text>
 
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('CuboChat')}>
+          <Image source={require('../assets/Capas/Cubo.png')} style={estilos.imagemCard} />
+          <Text style={estilos.cardTitulo}>CuboChats</Text>
+          <Text style={estilos.cardDescricao}>Aprenda com o CuboChat para resolver o cubo mágico.</Text>
+        </TouchableOpacity>
+
+        <Footer />
       </ScrollView>
     </SafeAreaView>
   );

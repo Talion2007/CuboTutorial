@@ -19,6 +19,7 @@ import Footer from '../components/Footer';
 
 export default function Gemini() {
     const [modalVisible, setModalVisible] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [mensagem, setMensagem] = useState('');
     const [mensagens, setMensagens] = useState([
         { id: 1, texto: 'Olá, eu sou o ChatBot Online, basta fazer a sua pergunta para começar! 😁', proprio: false }
@@ -37,10 +38,11 @@ export default function Gemini() {
             setMensagens(prev => [...prev, novaMensagem]);
             setMensagem('');
             Keyboard.dismiss();
+            setLoading(true);
 
             setTimeout(() => {
                 responderBot(mensagem);
-            }, 5000); // 1000ms = 1 segundo
+            }, 7500); // 1000ms = 1 segundo
         }
     }
 
@@ -82,7 +84,7 @@ export default function Gemini() {
                         "Content-Type": "application/json",
                     },
                     params: {
-                        key: "AIzaSyDvAlW6gKxDH9C8oIz7za61fRU8PJ27yBc", // Substitua pela sua chave do Gemini
+                        key: "AIzaSyDvAlW6gKxDH9C8oIz7za61fRU8PJ27yBc",
                     },
                 }
             );
@@ -101,6 +103,7 @@ export default function Gemini() {
                 { id: Date.now() + 1, texto: "Erro ao conectar com a IA. Tente novamente! ❌", proprio: false }
             ]);
         }
+        setLoading(false);
     }
 
     return (
@@ -119,10 +122,10 @@ export default function Gemini() {
                             O ChatBot Online é uma ferramenta experimental baseada na API Gemini do Google!
                         </Text>
                         <Text style={estilos.textoDescritivoModal}>
-                        Ele possui limites de uso, evite enviar mensagens excessivas!
+                            Ele possui limites de uso, evite enviar mensagens excessivas!
                         </Text>
                         <Text style={estilos.textoDescritivoModal}>
-                        Sujeito a erros e consumo de dados móveis!
+                            Sujeito a erros e consumo de dados móveis!
                         </Text>
                         <Pressable
                             style={[estilos.botaoModal]}
@@ -170,6 +173,11 @@ export default function Gemini() {
                                 </Text>
                             </View>
                         ))}
+                        {loading && (
+                            <View style={estilos.mensagemOutro}>
+                                <Text style={[estilos.textoMensagem, estilos.mensagemOutro]}>🤖 Pensando...</Text>
+                            </View>
+                        )}
                     </ScrollView>
 
                     <View style={estilos.inputContainer}>

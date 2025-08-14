@@ -1,27 +1,28 @@
 // App.js
-import 'react-native-gesture-handler';
-import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Image, StyleSheet, Platform } from 'react-native'; // <--- MANTENHA O 'Platform' AQUI
-import ChatBot from './screens/ChatBot';
-import Gemini from './screens/Gemini'
-import TelaInicio from './screens/TelaInicio';
-import Estrutura from './screens/Estrutura';
-import Movimentacao from './screens/Movimentacao';
-import MetodoBasico from './screens/MetodoBasico';
-import MetodoAvancado from './screens/MetodoAvancado';
-import ExtraAvancado from './screens/ExtraAvancado';
-import Metodo2x2 from './screens/Metodo2x2';
+import "react-native-gesture-handler";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { Image, StyleSheet, Platform } from "react-native"; // <--- MANTENHA O 'Platform' AQUI
+import TelaInicio from "./screens/TelaInicio";
+import Estrutura from "./screens/Estrutura";
+import Movimentacao from "./screens/Movimentacao";
+import MetodoBasico from "./screens/MetodoBasico";
+import MetodoAvancado from "./screens/MetodoAvancado";
+import ExtraAvancado from "./screens/ExtraAvancado";
+import Metodo2x2 from "./screens/Metodo2x2";
+import CuboChat from "./screens/CuboChat";
 
-import TelaIndisponivel from './screens/TelaIndisponivel'; // Importando a tela de indisponibilidade
-import PecasCubo3x3 from './screens/Pecas';
+import ChatBot from "./screens/ChatBot";
+import Gemini from "./screens/Gemini";
+import TelaIndisponivel from "./screens/TelaIndisponivel"; // Importando a tela de indisponibilidade
+import PecasCubo3x3 from "./screens/Pecas";
+import CasosImpossiveis from "./screens/CasosImpossiveis";
 
 const Drawer = createDrawerNavigator();
 // Componentes das telas
 // App principal
 export default function App() {
-
   return (
     <NavigationContainer>
       <Drawer.Navigator
@@ -29,7 +30,7 @@ export default function App() {
         screenOptions={{
           // Cor de fundo do drawer
           drawerStyle: {
-            backgroundColor: '#2c3e50', // Azul escuro
+            backgroundColor: "#2c3e50", // Azul escuro
             width: 275,
             shadowColor: "#000",
             shadowOffset: { width: 0, height: 4 }, // Sombra para baixo
@@ -40,13 +41,13 @@ export default function App() {
 
           headerRight: () => (
             <Image
-              source={require('./assets/icon.png')} // <-- SEU ARQUIVO DE IMAGEM AQUI
+              source={require("./assets/icon.png")} // <-- SEU ARQUIVO DE IMAGEM AQUI
               style={styles.headerIconRight}
             />
           ),
 
           headerStyle: {
-            backgroundColor: '#fbfbffff', // Azul escuro
+            backgroundColor: "#fbfbffff", // Azul escuro
             height: 95, // Aumenta a altura para dar mais "respiração"
             // Sombra mais proeminente e suave para um visual profissional
             shadowColor: "#000",
@@ -58,9 +59,9 @@ export default function App() {
             borderBottomRightRadius: 3, // E na base direita
           },
           headerTitleStyle: {
-            fontWeight: 'bold', // Peso da fonte do título (já estava bom)
+            fontWeight: "bold", // Peso da fonte do título (já estava bom)
             fontSize: 20, // Título um pouco maior para destaque
-            color: '#26283dff', // Cor do título no cabeçalho (branco/claro)
+            color: "#26283dff", // Cor do título no cabeçalho (branco/claro)
             // Se precisar de alinhamento mais preciso, pode usar marginHorizontal
           },
           headerTitleAlign: "center", // Garante que o título esteja centralizado
@@ -70,92 +71,107 @@ export default function App() {
           // Estilo dos labels (texto dos itens)
           drawerLabelStyle: {
             fontSize: 14,
-            fontWeight: 'bold',
-            color: '#ecf0f1', // Texto claro
+            fontWeight: "bold",
+            color: "#ecf0f1", // Texto claro
             marginTop: 5,
           },
           // Cor do item ativo
-          drawerActiveTintColor: '#e74c3c', // Vermelho
+          drawerActiveTintColor: "#e74c3c", // Vermelho
           // Cor do item inativo
-          drawerInactiveTintColor: '#bdc3c7', // Cinza claro
+          drawerInactiveTintColor: "#bdc3c7", // Cinza claro
           // Cor de fundo do item ativo
-          drawerActiveBackgroundColor: '#34495e',
+          drawerActiveBackgroundColor: "#34495e",
           // Cor do ícone
           drawerIconStyle: {
-            tintColor: '#ecf0f1',
-          }
+            tintColor: "#ecf0f1",
+          },
         }}
       >
         <Drawer.Screen
           name="Início"
           component={TelaInicio}
-          options={{ title: 'Home Page ' }}
+          options={{ title: "Home Page " }}
         />
         <Drawer.Screen
           name="Estrutura"
           component={Estrutura}
-          options={{ title: 'Estrutura do Cubo', }}
+          options={{ title: "Estrutura do Cubo" }}
         />
         <Drawer.Screen
           name="Movimentacao"
           component={Movimentacao}
-          options={{ title: 'Movimentação' }}
+          options={{ title: "Movimentação" }}
         />
         <Drawer.Screen
           name="MetodoBasico"
           component={MetodoBasico}
-          options={{ title: 'Método Básico' }}
+          options={{ title: "Método Básico" }}
         />
         <Drawer.Screen
           name="MetodoAvancado"
           component={MetodoAvancado}
-          options={{ title: 'Método Avançado' }}
+          options={{ title: "Método Avançado" }}
         />
         <Drawer.Screen
           name="ExtraAvancado"
           component={ExtraAvancado}
-          options={{ title: 'Extra Avançado' }}
+          options={{ title: "Extra Avançado" }}
         />
         <Drawer.Screen
           name="Metodo2x2"
           component={Metodo2x2}
           options={{
-            title: 'Metodo 2x2'
+            title: "Metodo 2x2",
           }}
         />
         <Drawer.Screen
-          name="ChatBot Local"
-          component={ChatBot}
+          name="CuboChat"
+          component={CuboChat}
           options={{
-            title: 'ChatBot Local'
+            title: "CuboChats", // Esconde do menu
           }}
         />
-        <Drawer.Screen
-          name="ChatBot Online"
-          component={Gemini}
-          options={{
-            title: 'ChatBot Online'
-          }}
-        />
-
 
         <Drawer.Screen
           name="TelaIndisponivel"
           component={TelaIndisponivel}
           options={{
-            title: 'Tela Indisponível',
-            drawerItemStyle: { display: 'none' } // Esconde do menu
+            title: "Tela Indisponível",
+            drawerItemStyle: { display: "none" }, // Esconde do menu
           }}
         />
         <Drawer.Screen
           name="Pecas"
           component={PecasCubo3x3}
           options={{
-            title: 'Peças do Cubo',
-            drawerItemStyle: { display: 'none' } // Esconde do menu
+            title: "Peças do Cubo",
+            drawerItemStyle: { display: "none" }, // Esconde do menu
           }}
         />
-
+        <Drawer.Screen
+          name="CasosImpossiveis"
+          component={CasosImpossiveis}
+          options={{
+            title: "Casos Impossíveis",
+            drawerItemStyle: { display: "none" }, // Esconde do menu
+          }}
+        />
+        <Drawer.Screen
+          name="ChatBot Local"
+          component={ChatBot}
+          options={{
+            title: "ChatBot Local",
+            drawerItemStyle: { display: "none" }, // Esconde do menu
+          }}
+        />
+        <Drawer.Screen
+          name="ChatBot Online"
+          component={Gemini}
+          options={{
+            title: "ChatBot Online",
+            drawerItemStyle: { display: "none" }, // Esconde do menu
+          }}
+        />
       </Drawer.Navigator>
     </NavigationContainer>
   );
@@ -165,6 +181,6 @@ const styles = StyleSheet.create({
   headerIconRight: {
     width: 70, // Ajuste o tamanho conforme necessário
     height: 70, // Ajuste o tamanho conforme necessário
-    resizeMode: 'contain', // Garante que a imagem se ajuste ao tamanho sem cortar
+    resizeMode: "contain", // Garante que a imagem se ajuste ao tamanho sem cortar
   },
 });

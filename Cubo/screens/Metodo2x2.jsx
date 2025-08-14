@@ -1,17 +1,28 @@
 import 'react-native-gesture-handler';
 import { Text, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import { useRef, useCallback } from 'react';
 import estilos from '../styles/estilos';
 import Footer from '../components/Footer';
 
 export default function Metodo2x2() {
 
   const navigation = useNavigation();
+  const scrollRef = useRef(null);
+
+  // Quando a tela ganha foco, volta ao topo
+  useFocusEffect(
+    useCallback(() => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollTo({ y: 0, animated: true });
+      }
+    }, [])
+  );
 
   return (
     <SafeAreaView style={estilos.SafeArea}>
-      <ScrollView style={estilos.conteudoScroll} contentContainerStyle={estilos.conteudoCentralizado}>
+      <ScrollView style={estilos.conteudoScroll} contentContainerStyle={estilos.conteudoCentralizado} ref={scrollRef}>
         <Text style={estilos.titulo}>Método Cubo 2x2</Text>
         <Text style={estilos.texto}>
           Resolver o cubo 2x2 rápido depende de prática e técnica. Os métodos mais usados incluem o Básico, Ortega e Guimond, cada um com suas estratégias para finalizar o cubo rapidamente.
@@ -53,6 +64,20 @@ export default function Metodo2x2() {
         <Text style={estilos.texto}>3 - Quando estiver confortável com Ortega, experimente o método Guimond, que é mais avançado e permite resolver o cubo ainda mais rápido.</Text>
         <Text style={estilos.texto}>4 - Faça treinos curtos, mas frequentes. Velocidade vem com prática consistente e memorização das fórmulas.</Text>
         <Text style={estilos.texto}>5 - Sempre revise os métodos anteriores. Mesmo após aprender métodos avançados, o básico continua sendo útil para situações inesperadas.</Text>
+
+        <Text style={estilos.textoVeja}>Veja também:</Text>
+
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('ExtraAvancado')}>
+          <Image source={require('../assets/Capas/ExtraAvancado.png')} style={estilos.imagemCard} />
+          <Text style={estilos.cardTitulo}>Extra Avançado</Text>
+          <Text style={estilos.cardDescricao}>Aprenda fórmulas extras para se melhorar seus tempos.</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('CuboChat')}>
+          <Image source={require('../assets/Capas/Cubo.png')} style={estilos.imagemCard} />
+          <Text style={estilos.cardTitulo}>CuboChats</Text>
+          <Text style={estilos.cardDescricao}>Aprenda com o CuboChat para resolver o cubo mágico.</Text>
+        </TouchableOpacity>
 
         <Footer />
 

@@ -24,6 +24,18 @@ const estilos = StyleSheet.create({
     color: '#666'
   },
 
+  textoVeja: {
+    fontSize: 20,
+    marginBottom: 20,
+    marginTop: 20,
+    color: '#666',
+    borderTopColor: '#ddd',
+    borderTopWidth: 0.5,
+    paddingTop: 20,
+    width: '100%',
+    textAlign: 'center',
+  },
+
   conteudoScroll: {
     flex: 1,
     padding: 15,// Adicionando um fundo claro para melhor visibilidade
@@ -93,16 +105,16 @@ const estilos = StyleSheet.create({
     padding: 25,
     paddingBottom: 75,
     width: '110%',
-  elevation: 8, // Sombra para dar profundidade
+    elevation: 8, // Sombra para dar profundidade
     backgroundColor: '#fbfbffff', // Fundo branco para contraste
     textAlign: 'center',
     minHeight: 125,
   },
-    SafeArea: {
+  SafeArea: {
     flex: 1,
     backgroundColor: '#fbfbffff',
   },
-    mensagensContainer: { flex: 1, marginBottom: 20, minHeight: '60%' },
+  mensagensContainer: { flex: 1, marginBottom: 20, minHeight: '60%' },
   mensagem: {
     padding: 12,
     marginVertical: 4,
@@ -120,8 +132,8 @@ const estilos = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   textoMensagem: {
-     color: 'white', fontSize: 16 
-    },
+    color: 'white', fontSize: 16
+  },
   inputContainer: {
     flexDirection: 'row',
     padding: 10,
@@ -138,7 +150,7 @@ const estilos = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginRight: 10,
-    maxHeight:  60,
+    maxHeight: 60,
     fontSize: 16,
   },
   botaoEnviar: {
@@ -157,7 +169,7 @@ const estilos = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'rgba(0,0,0,0.1)', // ← deixa o fundo escuro semiopaco
   },
-modalView: {
+  modalView: {
     width: '80%',
     margin: 20,
     backgroundColor: '#fbfbffff',
@@ -165,27 +177,32 @@ modalView: {
     padding: 35,
     alignItems: 'center',
     elevation: 5,
-},
-botaoModal: {
+  },
+  botaoModal: {
     borderRadius: 10,
     padding: 10,
     elevation: 2,
     backgroundColor: '#34495e',
     marginTop: 20,
-},
-textoModal: {
+  },
+  textoModal: {
     color: '#fbfbffff',
     textAlign: 'center',
     fontSize: 16,
-},
-textoDescritivoModal: {
-  fontSize: 16,
-  marginBottom: 5,
-  marginTop: 5,
-  textAlign: 'justify',
-  width: '85%',
-  color: '#666'
-},
+  },
+  textoDescritivoModal: {
+    fontSize: 16,
+    marginBottom: 5,
+    marginTop: 5,
+    textAlign: 'justify',
+    width: '85%',
+    color: '#666'
+  },
+  mensagemOutro: {
+    backgroundColor: '#bfddfbff', // Fundo branco para contraste
+    textAlign: 'center',
+    alignSelf: 'flex-start',
+  },
 });
 
 export default estilos;

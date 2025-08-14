@@ -17,7 +17,7 @@ import Footer from '../components/Footer';
 export default function ChatBot() {
   const [mensagem, setMensagem] = useState('');
   const [mensagens, setMensagens] = useState([
-    { id: 1, texto: 'Olá, eu sou o ChatBot, basta dizer "Oi" para iniciar! 😁', proprio: false }
+    { id: 1, texto: 'Olá, eu sou o ChatBot Local, basta dizer "Oi" para iniciar! 😁', proprio: false }
   ]);
 
   const scrollViewRef = useRef(null);
@@ -52,7 +52,7 @@ export default function ChatBot() {
     else if (textoUsuario.toLowerCase().includes('centros')) {
       resposta = 'Os Centros do Cubo são peças que possuem apenas uma cor, e sempre estão na mesma posição, ao centro do cubo. Se quiser saber mais sobre os Centros, entre na página "Estrutura do Cubo", e depois em "Peças do Cubo"! 😉\n\nVocê também pode perguntar sobre as peças individuais, escrevendo "centros", "meios" ou "quinas", ou perguntar outras coisas! 😎';
     }
-        else if (textoUsuario.toLowerCase().includes('meios')) {
+    else if (textoUsuario.toLowerCase().includes('meios')) {
       resposta = 'Os Meios do Cubo são peças que possuem duas cores e estão localizados entre os cantos do cubo, e ao redor dos meios. Se quiser saber mais sobre os Meios, entre na página "Estrutura do Cubo", e depois em "Peças do Cubo"! 😉\n\nVocê também pode perguntar sobre as peças individuais, escrevendo "centros", "meios" ou "quinas", ou perguntar outras coisas! 😎';
     }
     else if (textoUsuario.toLowerCase().includes('quinas')) {
@@ -84,7 +84,7 @@ export default function ChatBot() {
     }
 
     if (textoUsuario.toLowerCase().includes('limpar')) {
-      setMensagens([{ id: 1, texto: 'Olá, eu sou o ChatBot, basta dizer "Oi" para iniciar! 😁.', proprio: false }]);
+      setMensagens([{ id: 1, texto: 'Olá, eu sou o ChatBot Local, basta dizer "Oi" para iniciar! 😁.', proprio: false }]);
       return;
     }
 
@@ -117,7 +117,7 @@ export default function ChatBot() {
             contentContainerStyle={{ justifyContent: 'flex-end', alignItems: 'center' }}
           >
             {mensagens.length <= 2 ? (
-              <Text style={estilos.titulo}>ChatBot</Text>
+              <Text style={estilos.titulo}>ChatBot Local</Text>
             ) : (
               <Text style={estilos.mensagem}></Text>
             )}

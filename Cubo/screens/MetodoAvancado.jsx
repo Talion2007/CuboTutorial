@@ -1,17 +1,28 @@
 import 'react-native-gesture-handler';
 import { Text, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import { useRef, useCallback } from 'react';
 import estilos from '../styles/estilos';
 import Footer from '../components/Footer';
 
 export default function MetodoAvancado() {
 
   const navigation = useNavigation();
+  const scrollRef = useRef(null);
+
+  // Quando a tela ganha foco, volta ao topo
+  useFocusEffect(
+    useCallback(() => {
+      if (scrollRef.current) {
+        scrollRef.current.scrollTo({ y: 0, animated: true });
+      }
+    }, [])
+  );
 
   return (
     <SafeAreaView style={estilos.SafeArea}>
-      <ScrollView style={estilos.conteudoScroll} contentContainerStyle={estilos.conteudoCentralizado}>
+      <ScrollView style={estilos.conteudoScroll} contentContainerStyle={estilos.conteudoCentralizado} ref={scrollRef}>
         <Text style={estilos.titulo}> Método Avançado</Text>
         <Text style={estilos.texto}>Os passos de um cuber que resolve o cubo em 1 minuto é o mesmo do que resolve em menos de 10 segundos, porém, o que faz no menor tempo utiliza diversos atalhos que fazem parte do método avançado, que você provavelmente já ouviu falar como Fridrich ou então a pela sigla CFOP, composta pelo Cross, F2L, OLL, e PLL, que significam: </Text>
 
@@ -52,6 +63,20 @@ export default function MetodoAvancado() {
         <Text style={estilos.texto}>3 - Depois que os 7 casos do OLL estiverem bem memorizados você pode começar a aprender o 41 casos de F2L. Eu já dividi os casos semelhantes em alguns blocos, então aproveite disso e aprenda um bloco de cada vez. Pode ser 1 ou 2 fórmulas por dia, ou um bloco de fórmulas por semana. Não tenha pressa!</Text>
         <Text style={estilos.texto}>4 - Depois que o F2L estiver completo, você pode então iniciar o estudo dos casos de PLL. Vai perceber que as fórmulas são maiores e mais complexas, mas não se assuste! Minha dica é que você divida cada fórmula em pequenos blocos. Tente encontrar os padrões e perceba os movimentos semelhantes que cada caso possui, e assim procure sempre entender o que cada movimento faz. Você pode aprender 1 fórmula por dia, ou 2 por semana... Faça isso no tempo que se sentir mais confortável.</Text>
         <Text style={estilos.texto}>5 - Por fim, e não menos importante, você deve estudar os 50 casos restantes do OLL. Essa é a parte que a maioria desiste, pois acha que não é tão necessário assim. Mas o fato é que os melhores cubers do mundo aprenderam todos esses casos e muitos mais depois. Então, sim, se você quer atingir os melhores tempos você precisa aprender e aplicar esses casos. Mais uma vez, faça tudo com muita calma e no seu tempo.</Text>
+
+        <Text style={estilos.textoVeja}>Veja também:</Text>
+
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('MetodoBasico')}>
+          <Image source={require('../assets/Capas/MetodoBasico.png')} style={estilos.imagemCard} />
+          <Text style={estilos.cardTitulo}>Método Básico</Text>
+          <Text style={estilos.cardDescricao}>O primeiro passo para resolver o cubo mágico.</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('ExtraAvancado')}>
+          <Image source={require('../assets/Capas/ExtraAvancado.png')} style={estilos.imagemCard} />
+          <Text style={estilos.cardTitulo}>Extra Avançado</Text>
+          <Text style={estilos.cardDescricao}>Aprenda fórmulas extras para se melhorar seus tempos.</Text>
+        </TouchableOpacity>
 
         <Footer />
 
