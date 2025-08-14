@@ -5,7 +5,7 @@ import estilos from '../styles/estilos';
 export default function Footer() {
   return (
     <View style={estilos.footer}>
-      <Text style={{ color: '#666', textAlign: 'center' }}>© 2025 CuboTutorial. Todos os direitos reservados - {Platform.OS === 'ios' ? 'Versão iOS' : 'Versão Android'} 1.2.3</Text>
+      <Text style={{ color: '#666', textAlign: 'center' }}>© 2025 CuboTutorial. Todos os direitos reservados - {Platform.OS === 'ios' ? 'Versão iOS' : 'Versão Android'} 1.2.4</Text>
       <Text style={{ color: '#666', textAlign: 'center' }}>Desenvolvido por Felipe Cagnin </Text>
     </View>
   );
