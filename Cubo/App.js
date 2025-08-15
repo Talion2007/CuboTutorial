@@ -4,6 +4,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Image, StyleSheet, Platform } from "react-native"; // <--- MANTENHA O 'Platform' AQUI
+import { Linking, TouchableOpacity } from "react-native";
 import TelaInicio from "./screens/TelaInicio";
 import Estrutura from "./screens/Estrutura";
 import Movimentacao from "./screens/Movimentacao";
@@ -40,10 +41,16 @@ export default function App() {
           },
 
           headerRight: () => (
-            <Image
-              source={require("./assets/icon.png")} // <-- SEU ARQUIVO DE IMAGEM AQUI
-              style={styles.headerIconRight}
-            />
+            <TouchableOpacity
+              onPress={() =>
+                Linking.openURL("https://github.com/Talion2007/CuboTutorial/releases")
+              }
+            >
+              <Image
+                source={require("./assets/icon.png")}
+                style={styles.headerIconRight}
+              />
+            </TouchableOpacity>
           ),
 
           headerStyle: {
