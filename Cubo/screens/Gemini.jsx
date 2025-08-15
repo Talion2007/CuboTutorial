@@ -16,6 +16,7 @@ import {
 import axios from 'axios';
 import estilos from '../styles/estilos';
 import Footer from '../components/Footer';
+import { apiCagnin, apiFelipe } from '../env';
 
 export default function Gemini() {
     const [modalVisible, setModalVisible] = useState(true);
@@ -47,8 +48,8 @@ export default function Gemini() {
     }
 
     const apiKeys = [
-        "AIzaSyDvAlW6gKxDH9C8oIz7za61fRU8PJ27yBc",
-        "AIzaSyAxbs2BIR2dqSih5zqhh3Kh0GRB5dZ4iKc"
+        apiCagnin,
+        apiFelipe
     ];
 
     async function responderBot(textoUsuario) {
