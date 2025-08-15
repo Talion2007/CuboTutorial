@@ -46,6 +46,11 @@ export default function Gemini() {
         }
     }
 
+    const apiKeys = [
+        "AIzaSyDvAlW6gKxDH9C8oIz7za61fRU8PJ27yBc",
+        "AIzaSyAxbs2BIR2dqSih5zqhh3Kh0GRB5dZ4iKc"
+    ];
+
     async function responderBot(textoUsuario) {
         if (textoUsuario.toLowerCase().includes('limpar')) {
             setMensagens([{ id: 1, texto: 'Olá, eu sou o ChatBot Online, basta fazer a sua pergunta para começar! 😁', proprio: false }]);
@@ -56,53 +61,50 @@ export default function Gemini() {
             .map(msg => `${msg.proprio ? 'Você' : 'ChatBot'}: ${msg.texto}`)
             .join('\n');
 
-        try {
-            const res = await axios.post(
-                "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
-                {
-                    contents: [
-                        {
-                            parts: [
-                                {
-                                    text: `
-                        Seu nome é ChatBot Online, do App CuboTutorial!
-                        Você é um especialista em cubo mágico (Cubo de Rubik). 
-                        Responda de forma amigável e didática usando emojis positivos 😁😄😉😎🤔.
-                        Não saia do escopo cubo mágico. 
-                        Caso pergunte, Felipe Cagnin é o Desenvolvedor e o responsável por este projeto.
-                        Aqui está o histórico da conversa:
-                        ${historicoConversa}
-                        Pergunta atual: ${textoUsuario}
-                        `
-                                }
-                            ]
-                        }
-                    ],
-                },
-                {
-                    headers: {
-                        "Content-Type": "application/json",
+        let respostaIA = "Desculpe, não entendi. 🤔";
+
+        for (let key of apiKeys) {
+            try {
+                const res = await axios.post(
+                    "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent",
+                    {
+                        contents: [
+                            {
+                                parts: [
+                                    {
+                                        text: `
+    Seu nome é ChatBot Online, do App CuboTutorial!
+    Você é um especialista em cubo mágico (Cubo de Rubik). 
+    Responda de forma amigável e didática usando emojis positivos 😁😄😉😎🤔.
+    Não saia do escopo cubo mágico. 
+    Caso pergunte, Felipe Cagnin é o Desenvolvedor e o responsável por este projeto.
+    Aqui está o histórico da conversa:
+    ${historicoConversa}
+    Pergunta atual: ${textoUsuario}
+    `
+                                    }
+                                ]
+                            }
+                        ],
                     },
-                    params: {
-                        key: "AIzaSyDvAlW6gKxDH9C8oIz7za61fRU8PJ27yBc",
-                    },
-                }
-            );
+                    {
+                        headers: { "Content-Type": "application/json" },
+                        params: { key }
+                    }
+                );
 
-            const respostaIA = res.data.candidates[0]?.content?.parts[0]?.text || "Desculpe, não entendi. 🤔";
-
-            setMensagens(prev => [
-                ...prev,
-                { id: Date.now() + 1, texto: respostaIA, proprio: false }
-            ]);
-
-        } catch (err) {
-            console.error(err);
-            setMensagens(prev => [
-                ...prev,
-                { id: Date.now() + 1, texto: "Erro ao conectar com a IA. Tente novamente! ❌", proprio: false }
-            ]);
+                respostaIA = res.data.candidates[0]?.content?.parts[0]?.text || respostaIA;
+                break; // se deu certo, sai do loop
+            } catch (err) {
+                console.warn(`Erro com a chave ${key}, tentando próxima...`);
+                // continua para a próxima chave
+            }
         }
+
+        setMensagens(prev => [
+            ...prev,
+            { id: Date.now() + 1, texto: respostaIA, proprio: false }
+        ]);
         setLoading(false);
     }
 
