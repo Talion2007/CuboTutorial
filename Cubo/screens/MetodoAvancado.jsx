@@ -66,13 +66,13 @@ export default function MetodoAvancado() {
 
         <Text style={estilos.textoVeja}>Veja também:</Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('MetodoBasico')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método Básico', { screen: 'MetodoBasico' })}>
           <Image source={require('../assets/Capas/MetodoBasico.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Método Básico</Text>
           <Text style={estilos.cardDescricao}>O primeiro passo para resolver o cubo mágico.</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('ExtraAvancado')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Extra Avançado', { screen: 'ExtraAvancado' })}>
           <Image source={require('../assets/Capas/ExtraAvancado.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Extra Avançado</Text>
           <Text style={estilos.cardDescricao}>Aprenda fórmulas extras para se melhorar seus tempos.</Text>

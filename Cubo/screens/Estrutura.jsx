@@ -34,7 +34,7 @@ export default function Estrutura() {
           Entender isso evita frustrações comuns de iniciantes, como tentar resolver o cubo de forma errada ou acreditar que há algo errado quando, na verdade, é só uma má compreensão da estrutura.
         </Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Pecas')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Estrutura do Cubo', { screen: 'Pecas' })}>
           <Image source={require('../assets/Capas/Pecas.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Peças do Cubo</Text>
           <Text style={estilos.cardDescricao}>Aprenda as peças que compõem o cubo mágico.</Text>
@@ -48,7 +48,7 @@ export default function Estrutura() {
           Conhecer esses casos pode te salvar de horas tentando resolver um cubo que, na verdade, está em uma configuração inválida!
         </Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('CasosImpossiveis')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Estrutura do Cubo', { screen: 'CasosImpossiveis' })}>
           <Image source={require('../assets/Capas/CasosImpossiveis.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Casos Impossíveis</Text>
           <Text style={estilos.cardDescricao}>Aprenda a identificar casos impossíveis no cubo mágico.</Text>
@@ -58,13 +58,13 @@ export default function Estrutura() {
 
         <Text style={estilos.textoVeja}>Veja também:</Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('CuboChat')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('CuboChats', { screen: 'CuboChatPage' })}>
           <Image source={require('../assets/Capas/Cubo.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>CuboChats</Text>
           <Text style={estilos.cardDescricao}>Aprenda com o CuboChat para resolver o cubo mágico.</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Movimentacao')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Movimentação', { screen: 'Movimentacao' })}>
           <Image source={require('../assets/Capas/MovimentacaoBasica.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Movimentação</Text>
           <Text style={estilos.cardDescricao}>Aprenda os movimentos básicos e avançados do cubo.</Text>

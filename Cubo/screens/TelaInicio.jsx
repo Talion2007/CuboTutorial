@@ -31,19 +31,19 @@ export default function TelaInicio() {
           Um portal completo para você aprender tudo sobre este incrível quebra-cabeça, do zero ao avançado. O Cubo Mágico é o brinquedo mais vendido do mundo e um dos quebra-cabeças mais intrigantes da história, com mais de 43 quintilhões de possibilidades e apenas uma solução. Descubra tudo aqui no CuboTutorial!
         </Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Estrutura')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Estrutura do Cubo', { screen: 'Estrutura' })}>
           <Image source={require('../assets/Capas/Pecas.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Estrutura do Cubo</Text>
           <Text style={estilos.cardDescricao}>Conheça as peças e a anatomia do cubo mágico.</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Movimentacao')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Movimentação', { screen: 'Movimentacao' })}>
           <Image source={require('../assets/Capas/MovimentacaoBasica.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Movimentação</Text>
           <Text style={estilos.cardDescricao}>Aprenda os movimentos básicos e avançados do cubo.</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('MetodoBasico')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método Básico', { screen: 'MetodoBasico' })}>
           <Image source={require('../assets/Capas/MetodoBasico.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Método Básico</Text>
           <Text style={estilos.cardDescricao}>O primeiro passo para resolver o cubo mágico.</Text>
@@ -51,19 +51,19 @@ export default function TelaInicio() {
 
         <Text style={estilos.texto}>Explore também nossos outros métodos avançados e dicas para se tornar um expert no Cubo Mágico!</Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('MetodoAvancado')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método Avançado', { screen: 'MetodoAvancado' })}>
           <Image source={require('../assets/Capas/MetodoAvancado.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Método Avançado</Text>
           <Text style={estilos.cardDescricao}>Conheça o método avançado para resolver o cubo.</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('ExtraAvancado')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Extra Avançado', { screen: 'ExtraAvancado' })}>
           <Image source={require('../assets/Capas/ExtraAvancado.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Extra Avançado</Text>
           <Text style={estilos.cardDescricao}>Aprenda fórmulas extras para se melhorar seus tempos.</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Metodo2x2')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método 2x2', { screen: 'Metodo2x2' })}>
           <Image source={require('../assets/Capas/Metodo2x2.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Método 2x2</Text>
           <Text style={estilos.cardDescricao}>Aprenda do básico ao avançado para o cubo 2x2.</Text>
@@ -71,7 +71,7 @@ export default function TelaInicio() {
 
         <Text style={estilos.texto}>Explore também nossos CuboChats e para perguntar e tirar dúvidas!</Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('CuboChat')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('CuboChats', { screen: 'CuboChatPage' })}>
           <Image source={require('../assets/Capas/Cubo.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>CuboChats</Text>
           <Text style={estilos.cardDescricao}>Aprenda com o CuboChat para resolver o cubo mágico.</Text>

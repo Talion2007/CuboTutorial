@@ -48,13 +48,13 @@ export default function MetodoBasico() {
 
         <Text style={estilos.textoVeja}>Veja também:</Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Movimentacao')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Movimentação', { screen: 'Movimentacao' })}>
           <Image source={require('../assets/Capas/MovimentacaoBasica.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Movimentação</Text>
           <Text style={estilos.cardDescricao}>Aprenda os movimentos básicos e avançados do cubo.</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('MetodoAvancado')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método Avançado', { screen: 'MetodoAvancado' })}>
           <Image source={require('../assets/Capas/MetodoAvancado.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Método Avançado</Text>
           <Text style={estilos.cardDescricao}>Conheça o método avançado para resolver o cubo.</Text>

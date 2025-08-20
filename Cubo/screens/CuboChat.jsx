@@ -35,7 +35,7 @@ export default function CuboChat() {
                     o funcionamento do aplicativo e guiar você nas funções disponíveis.
                 </Text>
 
-                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('ChatBot Local')}>
+                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('CuboChats', { screen: 'ChatBot' })}>
                     <Image source={require('../assets/Capas/Cubo.png')} style={estilos.imagemCard} />
                     <Text style={estilos.cardTitulo}>ChatBot Local</Text>
                     <Text style={estilos.cardDescricao}>
@@ -48,7 +48,7 @@ export default function CuboChat() {
                     e também sobre outros assuntos, com respostas geradas em tempo real pela inteligência artificial.
                 </Text>
 
-                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('ChatBot Online')}>
+                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('CuboChats', { screen: 'Gemini' })}>
                     <Image source={require('../assets/Capas/Exemplo.png')} style={estilos.imagemCard} />
                     <Text style={estilos.cardTitulo}>ChatBot Online</Text>
                     <Text style={estilos.cardDescricao}>
@@ -59,6 +59,20 @@ export default function CuboChat() {
                 <Text style={estilos.texto}>
                     Escolha o chat que melhor se encaixa na sua necessidade e aproveite para explorar e aprender mais!
                 </Text>
+
+                <Text style={estilos.textoVeja}>Veja também:</Text>
+
+                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método 2x2', { screen: 'Metodo2x2' })}>
+                    <Image source={require('../assets/Capas/Metodo2x2.png')} style={estilos.imagemCard} />
+                    <Text style={estilos.cardTitulo}>Método 2x2</Text>
+                    <Text style={estilos.cardDescricao}>Aprenda do básico ao avançado para o cubo 2x2.</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Estrutura do Cubo', { screen: 'Estrutura' })}>
+                    <Image source={require('../assets/Capas/Pecas.png')} style={estilos.imagemCard} />
+                    <Text style={estilos.cardTitulo}>Estrutura do Cubo</Text>
+                    <Text style={estilos.cardDescricao}>Conheça as peças e a anatomia do cubo mágico.</Text>
+                </TouchableOpacity>
 
                 <Footer />
             </ScrollView>

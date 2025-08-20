@@ -75,7 +75,7 @@ export default function CasosImpossiveis() {
                     <Text style={estilos.cardDescricao}>Aprenda as peças que compõem o cubo mágico.</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
+                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Movimentação', { screen: 'MovimentosBasicos' })}>
                     <Image source={require('../assets/Capas/MovimentacaoBasica.png')} style={estilos.imagemCard} />
                     <Text style={estilos.cardTitulo}>Movimentação Básica</Text>
                     <Text style={estilos.cardDescricao}>Aprenda as movimentações básicas do cubo mágico.</Text>

@@ -58,13 +58,13 @@ export default function ExtraAvancado() {
 
         <Text style={estilos.textoVeja}>Veja também:</Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('MetodoAvancado')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método Avançado', { screen: 'MetodoAvancado' })}>
           <Image source={require('../assets/Capas/MetodoAvancado.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Método Avançado</Text>
           <Text style={estilos.cardDescricao}>Conheça o método avançado para resolver o cubo.</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Metodo2x2')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método 2x2', { screen: 'Metodo2x2' })}>
           <Image source={require('../assets/Capas/Metodo2x2.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Método 2x2</Text>
           <Text style={estilos.cardDescricao}>Aprenda do básico ao avançado para o cubo 2x2.</Text>

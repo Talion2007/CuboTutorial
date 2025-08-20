@@ -33,7 +33,7 @@ export default function Movimentacao() {
           Comece aprendendo os movimentos básicos e a notação utilizada. Isso inclui movimentos como R, L, U, D, F e B, que representam as rotações das faces direita, esquerda, superior, inferior, frontal e traseira, respectivamente.
         </Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Movimentação', { screen: 'MovimentosBasicos' })}>
           <Image source={require('../assets/Capas/MovimentacaoBasica.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Movimentação Básica</Text>
           <Text style={estilos.cardDescricao}>Aprenda as movimentações básicas do cubo mágico.</Text>
@@ -59,13 +59,13 @@ export default function Movimentacao() {
 
         <Text style={estilos.textoVeja}>Veja também:</Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Estrutura')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Estrutura do Cubo', { screen: 'Estrutura' })}>
           <Image source={require('../assets/Capas/Pecas.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Estrutura do Cubo</Text>
           <Text style={estilos.cardDescricao}>Conheça as peças e a anatomia do cubo mágico.</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('MetodoBasico')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método Básico', { screen: 'MetodoBasico' })}>
           <Image source={require('../assets/Capas/MetodoBasico.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Método Básico</Text>
           <Text style={estilos.cardDescricao}>O primeiro passo para resolver o cubo mágico.</Text>

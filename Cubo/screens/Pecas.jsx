@@ -59,7 +59,7 @@ export default function PecasCubo3x3() {
 
         <Text style={estilos.textoVeja}>Veja também:</Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('ChatBot Local')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('CuboChats', { screen: 'ChatBot' })}>
           <Image source={require('../assets/Capas/Cubo.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>ChatBot Local</Text>
           <Text style={estilos.cardDescricao}>
@@ -67,7 +67,7 @@ export default function PecasCubo3x3() {
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('CasosImpossiveis')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Estrutura do Cubo', { screen: 'CasosImpossiveis' })}>
           <Image source={require('../assets/Capas/CasosImpossiveis.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Casos Impossíveis</Text>
           <Text style={estilos.cardDescricao}>Aprenda a identificar casos impossíveis no cubo mágico.</Text>

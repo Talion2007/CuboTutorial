@@ -67,13 +67,13 @@ export default function Metodo2x2() {
 
         <Text style={estilos.textoVeja}>Veja também:</Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('ExtraAvancado')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Extra Avançado', { screen: 'ExtraAvancado' })}>
           <Image source={require('../assets/Capas/ExtraAvancado.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Extra Avançado</Text>
           <Text style={estilos.cardDescricao}>Aprenda fórmulas extras para se melhorar seus tempos.</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('CuboChat')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('CuboChats', { screen: 'CuboChatPage' })}>
           <Image source={require('../assets/Capas/Cubo.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>CuboChats</Text>
           <Text style={estilos.cardDescricao}>Aprenda com o CuboChat para resolver o cubo mágico.</Text>
