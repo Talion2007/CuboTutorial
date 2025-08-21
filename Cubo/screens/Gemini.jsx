@@ -16,7 +16,7 @@ import {
 import axios from 'axios';
 import estilos from '../styles/estilos';
 import Footer from '../components/Footer';
-import { apiCagnin, apiFelipe } from '../env';
+import { apiCagnin, apiFelipe } from '../components/ApiKeys'; // Certifique-se de que as chaves estão corretas
 
 export default function Gemini() {
     const [modalVisible, setModalVisible] = useState(true);
