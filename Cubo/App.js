@@ -110,7 +110,7 @@ export default function App() {
         screenOptions={{
           // Mantenha todas as suas opções de estilo aqui
           drawerStyle: {
-            backgroundColor: "#2c3e50",
+            backgroundColor: "#E06942",
             width: 275,
             shadowColor: "#000",
             shadowOffset: { width: 0, height: 4 },
@@ -164,12 +164,12 @@ export default function App() {
           drawerLabelStyle: {
             fontSize: 14,
             fontWeight: "bold",
-            color: "#ecf0f1",
+            color: "#ffffffff",
             marginTop: 5,
           },
           drawerActiveTintColor: "#e74c3c",
           drawerInactiveTintColor: "#bdc3c7",
-          drawerActiveBackgroundColor: "#34495e",
+          drawerActiveBackgroundColor: "#EA9C3E",
           drawerIconStyle: {
             tintColor: "#ecf0f1",
           },

@@ -1,6 +1,18 @@
 import 'react-native-gesture-handler';
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import { Text, SafeAreaView, Image, TouchableOpacity, FlatList, Dimensions, StyleSheet, View, ScrollView } from 'react-native';
+import {
+  Text,
+  SafeAreaView,
+  Image,
+  TouchableOpacity,
+  FlatList,
+  Dimensions,
+  StyleSheet,
+  View,
+  ScrollView,
+  Alert,
+  BackHandler,
+} from 'react-native';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import estilos from '../styles/estilos';
 import Footer from '../components/Footer';
@@ -31,13 +43,40 @@ export default function TelaInicio() {
     }, [])
   );
 
+  // Alerta para sair do app (só na tela inicial)
+  useFocusEffect(
+    useCallback(() => {
+      const backAction = () => {
+        Alert.alert(
+          "Sair do aplicativo",
+          '\nVocê irá sair do aplicativo, tem certeza que deseja prosseguir?\n\nAinda há muito o que aprender!\n',
+          [
+            { text: "Cancelar", style: "cancel", onPress: () => null },
+            { text: "Sim", onPress: () => BackHandler.exitApp() },
+          ]
+        );
+        return true; // bloqueia o back padrão
+      };
+
+      const backHandler = BackHandler.addEventListener(
+        "hardwareBackPress",
+        backAction
+      );
+
+      return () => backHandler.remove();
+    }, [])
+  );
+
   // Troca automática das imagens
   useEffect(() => {
     const interval = setInterval(() => {
       const proximoIndice = (indice + 1) % imagensCarrossel.length;
       setIndice(proximoIndice);
-      carrosselRef.current.scrollToIndex({ index: proximoIndice, animated: true });
-    }, 5000); // muda a cada 4 segundos
+      carrosselRef.current.scrollToIndex({
+        index: proximoIndice,
+        animated: true,
+      });
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [indice]);
@@ -66,56 +105,138 @@ export default function TelaInicio() {
         {/* Conteúdo restante */}
         <Text style={estilos.titulo}>Tudo sobre Cubo Mágico</Text>
         <Text style={estilos.texto}>
-          Um portal completo para você aprender tudo sobre este incrível quebra-cabeça, do zero ao avançado. O Cubo Mágico é o brinquedo mais vendido do mundo e um dos quebra-cabeças mais intrigantes da história, com mais de 43 quintilhões de possibilidades e apenas uma solução. Descubra tudo aqui no CuboTutorial!
+          Um portal completo para você aprender tudo sobre este incrível
+          quebra-cabeça, do zero ao avançado. O Cubo Mágico é o brinquedo mais
+          vendido do mundo e um dos quebra-cabeças mais intrigantes da história,
+          com mais de 43 quintilhões de possibilidades e apenas uma solução.
+          Descubra tudo aqui no CuboTutorial!
         </Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Estrutura do Cubo', { screen: 'Estrutura' })}>
-          <Image source={require('../assets/Capas/Pecas.png')} style={estilos.imagemCard} />
+        <TouchableOpacity
+          style={estilos.card}
+          onPress={() =>
+            navigation.navigate('Estrutura do Cubo', { screen: 'Estrutura' })
+          }
+        >
+          <Image
+            source={require('../assets/Capas/Pecas.png')}
+            style={estilos.imagemCard}
+          />
           <Text style={estilos.cardTitulo}>Estrutura do Cubo</Text>
-          <Text style={estilos.cardDescricao}>Conheça as peças e a anatomia do cubo mágico.</Text>
+          <Text style={estilos.cardDescricao}>
+            Conheça as peças e a anatomia do cubo mágico.
+          </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Movimentação', { screen: 'Movimentacao' })}>
-          <Image source={require('../assets/Capas/MovimentacaoBasica.png')} style={estilos.imagemCard} />
+        <TouchableOpacity
+          style={estilos.card}
+          onPress={() =>
+            navigation.navigate('Movimentação', { screen: 'Movimentacao' })
+          }
+        >
+          <Image
+            source={require('../assets/Capas/MovimentacaoBasica.png')}
+            style={estilos.imagemCard}
+          />
           <Text style={estilos.cardTitulo}>Movimentação</Text>
-          <Text style={estilos.cardDescricao}>Aprenda os movimentos básicos e avançados do cubo.</Text>
+          <Text style={estilos.cardDescricao}>
+            Aprenda os movimentos básicos e avançados do cubo.
+          </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método Básico', { screen: 'MetodoBasico' })}>
-          <Image source={require('../assets/Capas/MetodoBasico.png')} style={estilos.imagemCard} />
+        <TouchableOpacity
+          style={estilos.card}
+          onPress={() =>
+            navigation.navigate('Método Básico', { screen: 'MetodoBasico' })
+          }
+        >
+          <Image
+            source={require('../assets/Capas/MetodoBasico.png')}
+            style={estilos.imagemCard}
+          />
           <Text style={estilos.cardTitulo}>Método Básico</Text>
-          <Text style={estilos.cardDescricao}>O primeiro passo para resolver o cubo mágico.</Text>
+          <Text style={estilos.cardDescricao}>
+            O primeiro passo para resolver o cubo mágico.
+          </Text>
         </TouchableOpacity>
 
-        <Text style={estilos.texto}>Explore também nossos outros métodos avançados e dicas para se tornar um expert no Cubo Mágico!</Text>
+        <Text style={estilos.texto}>
+          Explore também nossos outros métodos avançados e dicas para se tornar
+          um expert no Cubo Mágico!
+        </Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método Avançado', { screen: 'MetodoAvancado' })}>
-          <Image source={require('../assets/Capas/MetodoAvancado.png')} style={estilos.imagemCard} />
+        <TouchableOpacity
+          style={estilos.card}
+          onPress={() =>
+            navigation.navigate('Método Avançado', { screen: 'MetodoAvancado' })
+          }
+        >
+          <Image
+            source={require('../assets/Capas/MetodoAvancado.png')}
+            style={estilos.imagemCard}
+          />
           <Text style={estilos.cardTitulo}>Método Avançado</Text>
-          <Text style={estilos.cardDescricao}>Conheça o método avançado para resolver o cubo.</Text>
+          <Text style={estilos.cardDescricao}>
+            Conheça o método avançado para resolver o cubo.
+          </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Extra Avançado', { screen: 'ExtraAvancado' })}>
-          <Image source={require('../assets/Capas/ExtraAvancado.png')} style={estilos.imagemCard} />
+        <TouchableOpacity
+          style={estilos.card}
+          onPress={() =>
+            navigation.navigate('Extra Avançado', { screen: 'ExtraAvancado' })
+          }
+        >
+          <Image
+            source={require('../assets/Capas/ExtraAvancado.png')}
+            style={estilos.imagemCard}
+          />
           <Text style={estilos.cardTitulo}>Extra Avançado</Text>
-          <Text style={estilos.cardDescricao}>Aprenda fórmulas extras para se melhorar seus tempos.</Text>
+          <Text style={estilos.cardDescricao}>
+            Aprenda fórmulas extras para se melhorar seus tempos.
+          </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método 2x2', { screen: 'Metodo2x2' })}>
-          <Image source={require('../assets/Capas/Metodo2x2.png')} style={estilos.imagemCard} />
+        <TouchableOpacity
+          style={estilos.card}
+          onPress={() =>
+            navigation.navigate('Método 2x2', { screen: 'Metodo2x2' })
+          }
+        >
+          <Image
+            source={require('../assets/Capas/Metodo2x2.png')}
+            style={estilos.imagemCard}
+          />
           <Text style={estilos.cardTitulo}>Método 2x2</Text>
-          <Text style={estilos.cardDescricao}>Aprenda do básico ao avançado para o cubo 2x2.</Text>
+          <Text style={estilos.cardDescricao}>
+            Aprenda do básico ao avançado para o cubo 2x2.
+          </Text>
         </TouchableOpacity>
 
-        <Text style={estilos.texto}>Explore também nossos CuboChats para tirar dúvidas!</Text>
+        <Text style={estilos.texto}>
+          Explore também nossos CuboChats para tirar dúvidas!
+        </Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('CuboChats', { screen: 'CuboChatPage' })}>
-          <Image source={require('../assets/Capas/Cubo.png')} style={estilos.imagemCard} />
+        <TouchableOpacity
+          style={estilos.card}
+          onPress={() =>
+            navigation.navigate('CuboChats', { screen: 'CuboChatPage' })
+          }
+        >
+          <Image
+            source={require('../assets/Capas/Cubo.png')}
+            style={estilos.imagemCard}
+          />
           <Text style={estilos.cardTitulo}>CuboChats</Text>
-          <Text style={estilos.cardDescricao}>Aprenda com o CuboChat para resolver o cubo mágico.</Text>
+          <Text style={estilos.cardDescricao}>
+            Aprenda com o CuboChat para resolver o cubo mágico.
+          </Text>
         </TouchableOpacity>
 
-        <Text style={estilos.texto}>Agradecemos a sua visita e esperamos que aproveite ao máximo o nosso conteúdo!</Text>
+        <Text style={estilos.texto}>
+          Agradecemos a sua visita e esperamos que aproveite ao máximo o nosso
+          conteúdo!
+        </Text>
 
         <Footer />
       </ScrollView>
@@ -127,10 +248,10 @@ const style = StyleSheet.create({
   imagemCarrossel: {
     width: '100%',
     height: 200,
-    resizeMode: 'cover', // ou 'contain'
+    resizeMode: 'cover',
   },
   containerImagem: {
-    width: Dimensions.get('window').width * 0.90,
+    width: Dimensions.get('window').width * 0.9,
     height: 200,
     borderRadius: 10,
   },
