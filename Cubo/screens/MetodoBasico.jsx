@@ -37,8 +37,7 @@ export default function MetodoBasico() {
 
         <Text style={estilos.texto}>Se você já fez as fórmulas e quer dar um salto a mais em direção ao SpeedCube, confira tambem as fórmulas Extra Básico. Essas fórmulas irão ajudar você a resolver o cubo mais rápido, e improssionar seus amigos e familiares: </Text>
 
-
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método Básico', { screen: 'ExtraBasico' })}>
           <Image source={require('../assets/Capas/ExtraBasico.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Extra Básico</Text>
           <Text style={estilos.cardDescricao}> Aprenda a movimentos além do básico para resolver o cubo mágico.</Text>
@@ -54,10 +53,10 @@ export default function MetodoBasico() {
           <Text style={estilos.cardDescricao}>Aprenda os movimentos básicos e avançados do cubo.</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método Avançado', { screen: 'MetodoAvancado' })}>
-          <Image source={require('../assets/Capas/MetodoAvancado.png')} style={estilos.imagemCard} />
-          <Text style={estilos.cardTitulo}>Método Avançado</Text>
-          <Text style={estilos.cardDescricao}>Conheça o método avançado para resolver o cubo.</Text>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
+          <Image source={require('../assets/Capas/Cruz.png')} style={estilos.imagemCard} />
+          <Text style={estilos.cardTitulo}>Cross - Treino de Cruz</Text>
+          <Text style={estilos.cardDescricao}>Aqui você pode encontrar informações sobre treino de Cruz.</Text>
         </TouchableOpacity>
 
         <Footer />

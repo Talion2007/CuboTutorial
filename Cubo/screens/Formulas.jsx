@@ -93,7 +93,7 @@ export default function FormulasBasicas() {
                     <Text style={estilos.cardDescricao}>Aprenda as movimentações avançadas do cubo mágico.</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
+                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método Básico', { screen: 'ExtraBasico' })}>
                     <Image source={require('../assets/Capas/ExtraBasico.png')} style={estilos.imagemCard} />
                     <Text style={estilos.cardTitulo}>Extra Básico</Text>
                     <Text style={estilos.cardDescricao}> Aprenda a movimentos além do básico para resolver o cubo mágico.</Text>
