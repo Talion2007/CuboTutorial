@@ -51,7 +51,7 @@ export default function PecasCubo3x3() {
           No cubo 3x3, existem 6 peças centrais, 12 meios e 8 quinas. Saber identificar cada peça e observar como elas se movem ajuda a aplicar métodos básicos e avançados de forma rápida.
         </Text>
 
-        <Text style={estilos.texto}>Dicas de estudo:</Text>
+        <Text style={estilos.subTitulo}>Dicas de estudo:</Text>
         <Text style={estilos.texto}>1 - Memorize a posição das cores dos centros e como elas determinam cada face.</Text>
         <Text style={estilos.texto}>2 - Observe como os meios se movem em cada rotação para formar cruzes e completar camadas.</Text>
         <Text style={estilos.texto}>3 - Pratique identificar rapidamente as quinas e aprender suas combinações de cores.</Text>

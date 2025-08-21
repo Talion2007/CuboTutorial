@@ -15,6 +15,15 @@ const estilos = StyleSheet.create({
     marginBottom: 20,
   },
 
+  subTitulo: {
+    fontSize: 20,
+    marginBottom: 20,
+    marginTop: 20,
+    textAlign: 'center',
+    width: '85%',
+    color: '#666'
+  },
+
   texto: {
     fontSize: 17,
     marginBottom: 20,

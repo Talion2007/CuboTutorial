@@ -24,6 +24,7 @@ import Movimentacao from "./screens/Movimentacao";
 import MovimentosBasicos from "./screens/MovimentacaoBasica";
 import MovimentacaoAvancada from "./screens/MovimentacaoAvancada";
 import MetodoBasico from "./screens/MetodoBasico";
+import FormulasBasicas from "./screens/Formulas";
 import MetodoAvancado from "./screens/MetodoAvancado";
 import ExtraAvancado from "./screens/ExtraAvancado";
 import Metodo2x2 from "./screens/Metodo2x2";
@@ -50,7 +51,10 @@ function MovimentacaoFlow() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Movimentacao" component={Movimentacao} />
       <Stack.Screen name="MovimentosBasicos" component={MovimentosBasicos} />
-      <Stack.Screen name="MovimentacaoAvancada" component={MovimentacaoAvancada} />
+      <Stack.Screen
+        name="MovimentacaoAvancada"
+        component={MovimentacaoAvancada}
+      />
     </Stack.Navigator>
   );
 }
@@ -59,6 +63,7 @@ function MetodoBasicoFlow() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="MetodoBasico" component={MetodoBasico} />
+      <Stack.Screen name="FormulasBasicas" component={FormulasBasicas} />
     </Stack.Navigator>
   );
 }

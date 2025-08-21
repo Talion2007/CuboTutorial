@@ -1,15 +1,27 @@
 import 'react-native-gesture-handler';
-import { Text, SafeAreaView, Image, TouchableOpacity, ScrollView } from 'react-native';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
+import { Text, SafeAreaView, Image, TouchableOpacity, ScrollView, Dimensions, StyleSheet } from 'react-native';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
-import React, { useRef, useCallback } from 'react';
 import estilos from '../styles/estilos';
 import Footer from '../components/Footer';
 
 export default function TelaInicio() {
   const navigation = useNavigation();
   const scrollRef = useRef(null);
+  const carrosselRef = useRef(null);
+  const [indice, setIndice] = useState(0);
 
-  // Quando a tela ganha foco, volta ao topo
+  const imagensCarrossel = [
+    require('../assets/Carrossel/Carrossel01.jpg'),
+    require('../assets/Carrossel/Carrossel02.jpg'),
+    require('../assets/Carrossel/Carrossel03.jpg'),
+    require('../assets/Carrossel/Carrossel04.jpg'),
+    require('../assets/Carrossel/Carrossel05.jpg'),
+  ];
+
+  const larguraTela = Dimensions.get('window').width;
+
+  // Volta ao topo quando a tela ganha foco
   useFocusEffect(
     useCallback(() => {
       if (scrollRef.current) {
@@ -18,6 +30,17 @@ export default function TelaInicio() {
     }, [])
   );
 
+  // Troca automática das imagens
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const proximoIndice = (indice + 1) % imagensCarrossel.length;
+      setIndice(proximoIndice);
+      carrosselRef.current.scrollTo({ x: proximoIndice * larguraTela, animated: true });
+    }, 4000); // muda a cada 4 segundos
+
+    return () => clearInterval(interval);
+  }, [indice]);
+
   return (
     <SafeAreaView style={estilos.SafeArea}>
       <ScrollView
@@ -25,7 +48,26 @@ export default function TelaInicio() {
         style={estilos.conteudoScroll}
         contentContainerStyle={estilos.conteudoCentralizado}
       >
-        <Image source={require('../assets/wallpaper_inicio.jpg')} style={estilos.imagemLogo} />
+        {/* Carrossel */}
+        <ScrollView
+          horizontal
+          pagingEnabled
+          ref={carrosselRef}
+          showsHorizontalScrollIndicator={false}
+          scrollEnabled={false} // ❌ desabilita o toque do usuário
+          style={style.containerImagem}
+          contentContainerStyle={style.containerImagemCenter}
+        >
+          {imagensCarrossel.map((img, index) => (
+            <Image
+              key={index}
+              source={img}
+              style={style.imagemCarrossel}
+            />
+          ))}
+        </ScrollView>
+
+        {/* Conteúdo restante */}
         <Text style={estilos.titulo}>Tudo sobre Cubo Mágico</Text>
         <Text style={estilos.texto}>
           Um portal completo para você aprender tudo sobre este incrível quebra-cabeça, do zero ao avançado. O Cubo Mágico é o brinquedo mais vendido do mundo e um dos quebra-cabeças mais intrigantes da história, com mais de 43 quintilhões de possibilidades e apenas uma solução. Descubra tudo aqui no CuboTutorial!
@@ -69,7 +111,7 @@ export default function TelaInicio() {
           <Text style={estilos.cardDescricao}>Aprenda do básico ao avançado para o cubo 2x2.</Text>
         </TouchableOpacity>
 
-        <Text style={estilos.texto}>Explore também nossos CuboChats e para perguntar e tirar dúvidas!</Text>
+        <Text style={estilos.texto}>Explore também nossos CuboChats para tirar dúvidas!</Text>
 
         <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('CuboChats', { screen: 'CuboChatPage' })}>
           <Image source={require('../assets/Capas/Cubo.png')} style={estilos.imagemCard} />
@@ -77,8 +119,27 @@ export default function TelaInicio() {
           <Text style={estilos.cardDescricao}>Aprenda com o CuboChat para resolver o cubo mágico.</Text>
         </TouchableOpacity>
 
+        <Text style={estilos.texto}>Agradecemos a sua visita e esperamos que aproveite ao máximo o nosso conteúdo!</Text>
+
         <Footer />
       </ScrollView>
     </SafeAreaView>
   );
 }
+
+const style = StyleSheet.create({
+  imagemCarrossel: {
+    width: Dimensions.get('window').width,
+    height: 200,
+    resizeMode: 'cover',
+  },
+  containerImagem: {
+    width: '100%',
+    height: 200,
+    marginBottom: 20,
+    borderRadius: 10,
+  },
+  containerImagemCenter: {
+    justifyContent: 'center',
+  },
+});

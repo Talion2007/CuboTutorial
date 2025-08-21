@@ -61,7 +61,7 @@ export default function CasosImpossiveis() {
                     é sinal de que o cubo foi alterado fisicamente e precisará ser desmontado e corrigido.
                 </Text>
 
-                <Text style={estilos.texto}>Como evitar:</Text>
+                <Text style={estilos.subTitulo}>Como evitar:</Text>
                 <Text style={estilos.texto}>1 - Evite desmontar o cubo sem necessidade.</Text>
                 <Text style={estilos.texto}>2 - Caso desmonte, monte seguindo a posição correta das peças.</Text>
                 <Text style={estilos.texto}>3 - Durante a resolução, confira se não há casos impossíveis.</Text>

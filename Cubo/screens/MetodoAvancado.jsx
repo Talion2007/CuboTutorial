@@ -55,7 +55,7 @@ export default function MetodoAvancado() {
         <Text style={estilos.texto}>Só pra ter uma ideia, até agora você aprendeu cerca de 10 fórmulas no método básico pra poder resolver o cubo em aproximadamente 1 minuto. O método avançado completo possui 119 fórmulas, além das fórmulas extras que pode ser aprendidas depois.</Text>
         <Text style={estilos.texto}>E eu não estou falando isso pra te assustar, é apenas pra você entender que resolver um cubo muito rápido não é apenas uma questão de velocidade, mas sim, e principalmente, uma questão de técnica, conhecimento e muito estudo, que é justamente o que eu vou te ensinar aqui.</Text>
         <Text style={estilos.texto}>Sugiro que, antes de iniciar os estudos do método avançado, você faça o treino de cruz, já que é a primeira etapa do método e de extrema importância para que seus tempos possam ter um bom resultado e assim você esteja preparado para iniciar as fórmulas novas.</Text>
-        <Text style={estilos.texto}>Sugestão de estudo:
+        <Text style={estilos.subTitulo}>Sugestão de estudo:
 
         </Text>
         <Text style={estilos.texto}>1 - Inicie com o treino de cruz até que esteja totalmente confortável em realizar a cruz inicial diretamente no branco e aplicando apenas 1 fórmula direta e sem pausas, conforme ensino no Método Básico desse tutorial.</Text>

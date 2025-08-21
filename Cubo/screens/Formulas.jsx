@@ -1,0 +1,75 @@
+import 'react-native-gesture-handler';
+import React, { useRef, useCallback } from 'react';
+import { SafeAreaView, Text, View, Image, TouchableOpacity } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
+import estilos from '../styles/estilos';
+import Footer from '../components/Footer';
+import { cards, secoes } from '../components/Arrays'; // Assuming you have a data file for formulas
+
+export default function FormulasBasicas() {
+    const navigation = useNavigation();
+    const scrollRef = useRef(null);
+    const anchors = useRef({});
+
+    useFocusEffect(
+        useCallback(() => {
+            if (scrollRef.current) {
+                scrollRef.current.scrollTo({ y: 0, animated: false });
+            }
+        }, [])
+    );
+
+    const onSectionLayout = (key) => (e) => {
+        anchors.current[key] = e.nativeEvent.layout.y;
+    };
+
+    const goTo = (key) => {
+        const y = anchors.current[key] ?? 0;
+        scrollRef.current?.scrollTo({ y: Math.max(0, y - 12), animated: true });
+    };
+
+    return (
+        <SafeAreaView style={estilos.SafeArea}>
+            <ScrollView
+                ref={scrollRef}
+                style={estilos.conteudoScroll}
+                contentContainerStyle={[estilos.conteudoCentralizado]}
+            >
+                <Text style={estilos.titulo}>Fórmulas Básicas</Text>
+                <Text style={estilos.texto}>
+                    O próximo passo, depois de já ter aprendido a montar o cubo com o método básico, é
+                    estudar exatamente o mesmo método, agora usando fórmulas. Se você ainda não aprendeu a
+                    resolver o cubo, recomendo fortemente começar pelo método básico em vídeo. Antes de seguir,
+                    aprenda o significado das letras na página de Movimentos Básicos.
+                </Text>
+
+                {cards.map((c) => (
+                    <TouchableOpacity key={c.key} style={estilos.card} onPress={() => goTo(c.key)}>
+                        <Image source={c.imagem} style={estilos.imagemCard} accessibilityLabel={c.titulo} />
+                        <Text style={estilos.cardTitulo}>{c.titulo}</Text>
+                        <Text style={estilos.cardDescricao}>{c.descricao}</Text>
+                    </TouchableOpacity>
+                ))}
+
+                {secoes.map((sec) => (
+                    <>
+                        <Text style={estilos.subTitulo} key={sec.key} onLayout={onSectionLayout(sec.key)}>
+                            {sec.titulo}
+                        </Text>
+                        <Text style={estilos.texto}>{sec.intro}</Text>
+                        {sec.casos.map((c, i) => (
+                            <View key={`${sec.key}-caso-${i}`} style={estilos.cardNeutro}>
+                                <Image source={c.imagem} style={[estilos.imagemCard]} accessibilityLabel={`${sec.titulo} — Caso ${i + 1}`} />
+                                <Text style={estilos.cardTitulo}>{c.formula}</Text>
+                                <Text style={estilos.cardDescricao}>{c.texto}</Text>
+                            </View>
+                        ))}
+                    </>
+                ))}
+
+                <Footer />
+            </ScrollView>
+        </SafeAreaView>
+    );
+}

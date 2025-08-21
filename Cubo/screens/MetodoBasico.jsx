@@ -29,7 +29,7 @@ export default function MetodoBasico() {
         <Text style={estilos.texto}>Agora você pode estar pensando que, com tantas (ou praticamente infinitas) possibilidades, resolver um Cubo Mágico deve ser uma tarefa praticamente impossível. E você está quase certo. Apenas "resolver um cubo" na tentativa e erro de fato é algo completamente improvável, por isso é muito importante que você aprenda a técnica de solução. </Text>
         <Text style={estilos.texto}>Resolver o Cubo Mágico nada mais é do que seguir uma receita. São 8 passos divididos em algumas fórmulas que são muito mais simples do que você imagina:</Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método Básico', { screen: 'FormulasBasicas' })}>
           <Image source={require('../assets/Capas/MetodoBasico.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Fórmulas</Text>
           <Text style={estilos.cardDescricao}>Aprenda as fórmulas básicas para resolver o cubo mágico.</Text>
