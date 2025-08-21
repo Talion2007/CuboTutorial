@@ -2,22 +2,23 @@
   "expo": {
     "name": "Cubo Tutorial",
     "slug": "Cubo",
-    "version": "2.0.4",
+    "version": "2.0.5",
     "orientation": "portrait",
-    "icon": "./assets/iconApp.png",
+    "icon": "./assets/AppLogoIcon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/iconApp.png",
+      "image": "./assets/AppLogoIcon.png",
       "resizeMode": "contain",
       "backgroundColor": "#212C58"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.talionelessar2007.Cubo"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/iconApp.png",
+        "foregroundImage": "./assets/AppLogoIcon.png",
         "backgroundColor": "#212C58"
       },
       "edgeToEdgeEnabled": true,
