@@ -97,10 +97,10 @@ export default function ExtraBasico() {
                     <Text style={estilos.cardDescricao}>Aprenda as fórmulas básicas para resolver o cubo mágico.</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('ExtraAvancado')}>
-                    <Image source={require('../assets/Capas/ExtraAvancado.png')} style={estilos.imagemCard} />
-                    <Text style={estilos.cardTitulo}>Extra Avançado</Text>
-                    <Text style={estilos.cardDescricao}>Continue evoluindo com técnicas mais rápidas e avançadas.</Text>
+                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método Básico', { screen: 'CuboFiguras' })}>
+                    <Image source={require('../assets/Capas/CuboFiguras.png')} style={estilos.imagemCard} />
+                    <Text style={estilos.cardTitulo}>Cubo de Figuras</Text>
+                    <Text style={estilos.cardDescricao}> Aprenda a completar e corrigir os cubos com figuras.</Text>
                 </TouchableOpacity>
 
                 <Footer />

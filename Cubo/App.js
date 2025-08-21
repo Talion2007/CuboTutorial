@@ -26,6 +26,7 @@ import MovimentacaoAvancada from "./screens/MovimentacaoAvancada";
 import MetodoBasico from "./screens/MetodoBasico";
 import FormulasBasicas from "./screens/Formulas";
 import ExtraBasico from "./screens/ExtraBasico";
+import CuboFiguras from "./screens/CuboFiguras";
 import MetodoAvancado from "./screens/MetodoAvancado";
 import ExtraAvancado from "./screens/ExtraAvancado";
 import Metodo2x2 from "./screens/Metodo2x2";
@@ -66,6 +67,7 @@ function MetodoBasicoFlow() {
       <Stack.Screen name="MetodoBasico" component={MetodoBasico} />
       <Stack.Screen name="FormulasBasicas" component={FormulasBasicas} />
       <Stack.Screen name="ExtraBasico" component={ExtraBasico} />
+      <Stack.Screen name="CuboFiguras" component={CuboFiguras} />
     </Stack.Navigator>
   );
 }
