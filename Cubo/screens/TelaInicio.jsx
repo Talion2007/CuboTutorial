@@ -128,10 +128,10 @@ const style = StyleSheet.create({
     width: '100%',
     height: 200,
     resizeMode: 'cover', // ou 'contain'
-    borderRadius: 10,
   },
   containerImagem: {
     width: Dimensions.get('window').width * 0.90,
     height: 200,
+    borderRadius: 10,
   },
 });
