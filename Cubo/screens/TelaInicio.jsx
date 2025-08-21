@@ -37,7 +37,7 @@ export default function TelaInicio() {
       const proximoIndice = (indice + 1) % imagensCarrossel.length;
       setIndice(proximoIndice);
       carrosselRef.current.scrollToIndex({ index: proximoIndice, animated: true });
-    }, 4000); // muda a cada 4 segundos
+    }, 5000); // muda a cada 4 segundos
 
     return () => clearInterval(interval);
   }, [indice]);
