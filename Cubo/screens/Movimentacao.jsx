@@ -47,7 +47,7 @@ export default function Movimentacao() {
           Estas técnicas são fundamentais para acelerar a resolução e entrar no mundo do Speedcubing. Você aprenderá a utilizar giros em bloco, movimentos em fatias e algoritmos otimizados.
         </Text>
 
-        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
+        <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Movimentação', { screen: 'MovimentacaoAvancada' })}>
           <Image source={require('../assets/Capas/MovimentacaoAvancada.png')} style={estilos.imagemCard} />
           <Text style={estilos.cardTitulo}>Movimentação Avançada</Text>
           <Text style={estilos.cardDescricao}>Aprenda as movimentações avançadas do cubo mágico.</Text>

@@ -22,6 +22,7 @@ import PecasCubo3x3 from "./screens/Pecas";
 import CasosImpossiveis from "./screens/CasosImpossiveis";
 import Movimentacao from "./screens/Movimentacao";
 import MovimentosBasicos from "./screens/MovimentacaoBasica";
+import MovimentacaoAvancada from "./screens/MovimentacaoAvancada";
 import MetodoBasico from "./screens/MetodoBasico";
 import MetodoAvancado from "./screens/MetodoAvancado";
 import ExtraAvancado from "./screens/ExtraAvancado";
@@ -49,6 +50,7 @@ function MovimentacaoFlow() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Movimentacao" component={Movimentacao} />
       <Stack.Screen name="MovimentosBasicos" component={MovimentosBasicos} />
+      <Stack.Screen name="MovimentacaoAvancada" component={MovimentacaoAvancada} />
     </Stack.Navigator>
   );
 }

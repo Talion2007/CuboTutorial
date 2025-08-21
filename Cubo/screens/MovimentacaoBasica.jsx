@@ -22,10 +22,10 @@ export default function MovimentosBasicos() {
     // Lista de movimentos básicos
     const movimentos = [
         { letra: 'R - right', descricao: 'Direita horário', imagem: require('../assets/MovimentacaoBasica/MovimentoR.png') },
-        { letra: "R - right'", descricao: 'Direita anti-horário', imagem: require('../assets/MovimentacaoBasica/MovimentoRLinha.png') },
+        { letra: "R' - right'", descricao: 'Direita anti-horário', imagem: require('../assets/MovimentacaoBasica/MovimentoRLinha.png') },
         { letra: 'R2 - right double', descricao: 'Direita duplo', imagem: require('../assets/MovimentacaoBasica/MovimentoR2.png') },
         { letra: 'L - left', descricao: 'Esquerda horário', imagem: require('../assets/MovimentacaoBasica/MovimentoL.png') },
-        { letra: "L - left'", descricao: 'Esquerda anti-horário', imagem: require('../assets/MovimentacaoBasica/MovimentoLLinha.png') },
+        { letra: "L' - left'", descricao: 'Esquerda anti-horário', imagem: require('../assets/MovimentacaoBasica/MovimentoLLinha.png') },
         { letra: 'L2 - left double', descricao: 'Esquerda duplo', imagem: require('../assets/MovimentacaoBasica/MovimentoL2.png') },
         { letra: 'U - up', descricao: 'Topo horário', imagem: require('../assets/MovimentacaoBasica/MovimentoU.png') },
         { letra: 'D - down', descricao: 'Base horário', imagem: require('../assets/MovimentacaoBasica/MovimentoD.png') },
@@ -65,7 +65,7 @@ export default function MovimentosBasicos() {
                     <Text style={estilos.cardDescricao}>Aprenda a identificar casos impossíveis no cubo mágico.</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
+                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Movimentação', { screen: 'MovimentacaoAvancada' })}>
                     <Image source={require('../assets/Capas/MovimentacaoAvancada.png')} style={estilos.imagemCard} />
                     <Text style={estilos.cardTitulo}>Movimentação Avançada</Text>
                     <Text style={estilos.cardDescricao}>Aprenda as movimentações avançadas do cubo mágico.</Text>
