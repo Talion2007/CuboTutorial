@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React, { useRef, useState, useEffect, useCallback } from 'react';
-import { Text, SafeAreaView, Image, TouchableOpacity, ScrollView, Dimensions, StyleSheet } from 'react-native';
+import { Text, SafeAreaView, Image, TouchableOpacity, FlatList, Dimensions, StyleSheet, View, ScrollView } from 'react-native';
 import { useNavigation, useFocusEffect } from '@react-navigation/native';
 import estilos from '../styles/estilos';
 import Footer from '../components/Footer';
@@ -12,6 +12,7 @@ export default function TelaInicio() {
   const [indice, setIndice] = useState(0);
 
   const imagensCarrossel = [
+    require('../assets/Carrossel/WallpaperLogo.png'),
     require('../assets/Carrossel/Carrossel01.jpg'),
     require('../assets/Carrossel/Carrossel02.jpg'),
     require('../assets/Carrossel/Carrossel03.jpg'),
@@ -35,7 +36,7 @@ export default function TelaInicio() {
     const interval = setInterval(() => {
       const proximoIndice = (indice + 1) % imagensCarrossel.length;
       setIndice(proximoIndice);
-      carrosselRef.current.scrollTo({ x: proximoIndice * larguraTela, animated: true });
+      carrosselRef.current.scrollToIndex({ index: proximoIndice, animated: true });
     }, 4000); // muda a cada 4 segundos
 
     return () => clearInterval(interval);
@@ -49,23 +50,18 @@ export default function TelaInicio() {
         contentContainerStyle={estilos.conteudoCentralizado}
       >
         {/* Carrossel */}
-        <ScrollView
-          horizontal
-          pagingEnabled
+        <FlatList
           ref={carrosselRef}
+          data={imagensCarrossel}
+          keyExtractor={(_, index) => index.toString()}
+          pagingEnabled
           showsHorizontalScrollIndicator={false}
-          scrollEnabled={false} // ❌ desabilita o toque do usuário
+          scrollEnabled={false} // ❌ desativa arrasto manual
+          renderItem={({ item }) => (
+            <Image source={item} style={style.imagemCarrossel} />
+          )}
           style={style.containerImagem}
-          contentContainerStyle={style.containerImagemCenter}
-        >
-          {imagensCarrossel.map((img, index) => (
-            <Image
-              key={index}
-              source={img}
-              style={style.imagemCarrossel}
-            />
-          ))}
-        </ScrollView>
+        />
 
         {/* Conteúdo restante */}
         <Text style={estilos.titulo}>Tudo sobre Cubo Mágico</Text>
@@ -129,16 +125,13 @@ export default function TelaInicio() {
 
 const style = StyleSheet.create({
   imagemCarrossel: {
-    width: Dimensions.get('window').width,
-    height: 200,
-    resizeMode: 'cover',
-  },
-  containerImagem: {
     width: '100%',
     height: 200,
+    resizeMode: 'cover', // ou 'contain'
     borderRadius: 10,
   },
-  containerImagemCenter: {
-    justifyContent: 'center',
+  containerImagem: {
+    width: Dimensions.get('window').width * 0.90,
+    height: 200,
   },
 });

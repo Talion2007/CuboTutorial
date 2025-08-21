@@ -4,11 +4,11 @@
     "slug": "Cubo",
     "version": "2.0.4",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/iconApp.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/logoicon.png",
+      "image": "./assets/iconApp.png",
       "resizeMode": "contain",
       "backgroundColor": "#212C58"
     },
@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/logoicon.png",
+        "foregroundImage": "./assets/iconApp.png",
         "backgroundColor": "#212C58"
       },
       "edgeToEdgeEnabled": true,

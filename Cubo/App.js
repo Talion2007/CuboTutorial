@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
   headerIconRight: {
     width: 28,
     height: 28,
-    marginRight: 10,
+    margin: 12,
     resizeMode: "contain",
   },
 });
