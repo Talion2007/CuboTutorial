@@ -75,7 +75,14 @@ export default function ExtraBasico() {
                     </Text>
                 </View>
 
-                {/* Dicas finais */}
+                <Text style={estilos.texto}>
+                    Com essas formulas, você conseguirá economizar um pouco de tempo na resolução do cubo, mas não deixe de continuar estudando.
+                </Text>
+
+                <Text style={estilos.texto}>
+                    Confira a página de Métodos Avançados para mais dicas, e melhorar ainda mais sua velocidade!
+                </Text>
+
                 <Text style={estilos.subTitulo}>Dicas de Treino</Text>
                 <Text style={estilos.texto}>1 - Treine cruz e look ahead (observação antecipada).</Text>
                 <Text style={estilos.texto}>2-  Resolva várias vezes apenas até a cruz para ganhar velocidade.</Text>
