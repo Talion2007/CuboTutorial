@@ -8,17 +8,17 @@
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/AndroidIcon.png",
+      "image": "./assets/logoicon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#081B2A"
+      "backgroundColor": "#212C58"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/AndroidIcon.png",
-        "backgroundColor": "#1D1F33"
+        "foregroundImage": "./assets/logoicon.png",
+        "backgroundColor": "#212C58"
       },
       "edgeToEdgeEnabled": true,
       "package": "com.talionelessar2007.Cubo"

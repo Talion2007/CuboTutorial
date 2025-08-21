@@ -138,7 +138,7 @@ export default function App() {
               }
             >
               <Image
-                source={require("./assets/icon.png")}
+                source={require("./assets/iconApp.png")}
                 style={styles.headerIconRight}
               />
             </TouchableOpacity>
@@ -198,8 +198,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
   headerIconRight: {
-    width: 70,
-    height: 70,
+    width: 28,
+    height: 28,
+    marginRight: 10,
     resizeMode: "contain",
   },
 });

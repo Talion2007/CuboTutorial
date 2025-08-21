@@ -24,10 +24,10 @@ export default function MovimentacaoAvancada() {
         { letra: "Uw' - top two layers'", descricao: 'Duas camadas do topo no sentido anti-horário', imagem: require('../assets/MovimentacaoAvancada/MovimentoUwLinha.png') },
         { letra: "Fw - front two layers", descricao: 'Duas camadas da frente no sentido horário', imagem: require('../assets/MovimentacaoAvancada/MovimentoFw.png') },
         { letra: "Lw' - left two layers'", descricao: 'Duas camadas da esquerda no sentido anti-horário', imagem: require('../assets/MovimentacaoAvancada/MovimentoLwLinha.png') },
-    
+
         { letra: "M - middle layer", descricao: 'Camada do meio no mesmo sentido do L', imagem: require('../assets/MovimentacaoAvancada/MovimentoM.png') },
         { letra: "S - standing layer", descricao: 'Camada do meio no mesmo sentido do F', imagem: require('../assets/MovimentacaoAvancada/MovimentoS.png') },
-    
+
         { letra: "X - whole cube (R axis)", descricao: 'Cubo todo no mesmo sentido do R', imagem: require('../assets/MovimentacaoAvancada/MovimentoX.png') },
         { letra: "Y - whole cube (U axis)", descricao: 'Cubo todo no mesmo sentido do U', imagem: require('../assets/MovimentacaoAvancada/MovimentoY.png') },
         { letra: "Z - whole cube (F axis)", descricao: 'Cubo todo no mesmo sentido do F', imagem: require('../assets/MovimentacaoAvancada/MovimentoZ.png') },
@@ -74,7 +74,7 @@ export default function MovimentacaoAvancada() {
                     <Text style={estilos.cardDescricao}>Reveja os movimentos essenciais para dominar o cubo.</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
+                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Método Básico', { screen: 'FormulasBasicas' })}>
                     <Image source={require('../assets/Capas/MetodoBasico.png')} style={estilos.imagemCard} />
                     <Text style={estilos.cardTitulo}>Fórmulas</Text>
                     <Text style={estilos.cardDescricao}>Aprenda as fórmulas básicas para resolver o cubo mágico.</Text>

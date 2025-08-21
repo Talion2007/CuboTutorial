@@ -68,6 +68,37 @@ export default function FormulasBasicas() {
                     </>
                 ))}
 
+                <Text style={estilos.subTitulo}>Dicas: </Text>
+                <Text style={estilos.texto}>
+                    1 - Sempre verifique se todas as peças estão na posição correta antes de aplicar uma fórmula.
+                </Text>
+                <Text style={estilos.texto}>
+                    2 - Não tenha medo de experimentar diferentes abordagens. A resolução do cubo pode exigir tentativas e erros.
+                </Text>
+                <Text style={estilos.texto}>
+                    3 - Se você ficar preso, faça uma pausa e volte mais tarde com uma nova perspectiva.
+                </Text>
+                <Text style={estilos.texto}>
+                    4 - Caso tenha dúvidas, consulte materiais de apoio ou peça ajuda a alguém mais experiente.
+                </Text>
+                <Text style={estilos.texto}>
+                    5 - Se tiver alguma dúvida, utilize nosso ChatBot Online, disponível na aba de CuboChats.
+                </Text>
+
+                <Text style={estilos.textoVeja}>Veja também:</Text>
+
+                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('Movimentação', { screen: 'MovimentacaoAvancada' })}>
+                    <Image source={require('../assets/Capas/MovimentacaoAvancada.png')} style={estilos.imagemCard} />
+                    <Text style={estilos.cardTitulo}>Movimentação Avançada</Text>
+                    <Text style={estilos.cardDescricao}>Aprenda as movimentações avançadas do cubo mágico.</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={estilos.card} onPress={() => navigation.navigate('TelaIndisponivel')}>
+                    <Image source={require('../assets/Capas/ExtraBasico.png')} style={estilos.imagemCard} />
+                    <Text style={estilos.cardTitulo}>Extra Básico</Text>
+                    <Text style={estilos.cardDescricao}> Aprenda a movimentos além do básico para resolver o cubo mágico.</Text>
+                </TouchableOpacity>
+
                 <Footer />
             </ScrollView>
         </SafeAreaView>

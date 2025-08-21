@@ -17,6 +17,8 @@ import axios from 'axios';
 import estilos from '../styles/estilos';
 import Footer from '../components/Footer';
 import { apiCagnin, apiFelipe } from '../components/ApiKeys'; // Certifique-se de que as chaves estão corretas
+import { cards, secoes } from '../components/Arrays'; // Assuming you have a data file for formulas
+import { filetree } from '../components/FileTree';
 
 export default function Gemini() {
     const [modalVisible, setModalVisible] = useState(true);
@@ -74,14 +76,24 @@ export default function Gemini() {
                                 parts: [
                                     {
                                         text: `
-    Seu nome é ChatBot Online, do App CuboTutorial!
-    Você é um especialista em cubo mágico (Cubo de Rubik). 
-    Responda de forma amigável e didática usando emojis positivos 😁😄😉😎🤔.
-    Não saia do escopo cubo mágico. 
-    Caso pergunte, Felipe Cagnin é o Desenvolvedor e o responsável por este projeto.
-    Aqui está o histórico da conversa:
-    ${historicoConversa}
-    Pergunta atual: ${textoUsuario}
+                                    Você é o ChatBot Online do App CuboTutorial, especialista em Cubo de Rubik.
+                                    Você trabalha somente com textos, sem imagens e vídeos.
+                                    Responda didaticamente e com emojis positivos 😁😄😉😎🤔.
+                                    Foque apenas em cubo mágico.
+                                    Felipe Cagnin é o desenvolvedor responsável pelo projeto.
+
+                                    Histórico da conversa:
+                                    ${historicoConversa}
+
+                                    Estrutura resumida do projeto (Filetree - apenas screens):
+                                    ${JSON.stringify(filetree, null, 2)}
+
+                                    Método Básico (Fórmulas):
+                                    ${JSON.stringify(cards)}
+                                    ${JSON.stringify(secoes)}
+
+                                    Pergunta:
+                                    ${textoUsuario}
     `
                                     }
                                 ]
@@ -189,7 +201,7 @@ export default function Gemini() {
                                         { color: '#222' }
                                     ]}
                                 >
-                                    Maquina pensando...
+                                    🤔 Maquina pensando...
                                 </Text>
                             </View>
                         )}

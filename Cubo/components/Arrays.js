@@ -69,7 +69,7 @@ export const secoes = [
       },
       {
         formula: "F U' R",
-        texto: "Mesmo conceito, agora com o meio vindo do topo.",
+        texto: "Mesmo conceito, agora com o meio vindo ao topo.",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso01/Passo03.png"),
       },
       {
@@ -155,13 +155,13 @@ export const secoes = [
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso04/Passo02.png"),
       },
       {
-        formula: "U R U' R'",
+        formula: "Destravar'",
         texto:
           "Para casos intermediários: ajuste a peça antes de enviar para a posição final.",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso04/Passo03.png"),
       },
       {
-        formula: "U' L' U L",
+        formula: "Repetir",
         texto:
           "Outro caso intermediário: ajuste a peça da frente para a esquerda antes de aplicar a fórmula completa.",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso04/Passo04.png"),
@@ -176,77 +176,77 @@ export const secoes = [
     casos: [
       {
         formula: "F R U R' U' F'",
-        texto: "Caso “ponto”: qualquer orientação com o amarelo no topo.",
+        texto: "Caso “ponto”, qualquer orientação com o amarelo no topo.",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso05/Passo01.png"),
       },
       {
-        formula: "F R U R' U' F'",
-        texto: "Caso “L”: mantenha a letra L no canto superior esquerdo.",
+        formula: "Repetir",
+        texto: "Caso “L”, mantenha a letra L no canto superior esquerdo.",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso05/Passo02.png"),
       },
       {
-        formula: "F R U R' U' F'",
-        texto: "Caso “linha horizontal”: mantenha a linha na horizontal.",
+        formula: "Repetir",
+        texto: "Caso “linha horizontal”, mantenha a linha na horizontal.",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso05/Passo03.png"),
       },
       {
-        formula: "F R U R' U' F'",
+        formula: "Analisar",
         texto:
-          "Caso “linha vertical”: gire o cubo 90° e mantenha a linha na vertical.",
+          "Identifique qual é o seu caso e execute a fórmula para que a cruz seja solucionada..",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso05/Passo04.png"),
       },
     ],
   },
   {
     key: "passo6",
-    titulo: "6º passo: Face Amarela",
+    titulo: "6º passo: Orientando as Quinas Amarelas",
     intro:
-      "Aplique repetidamente a fórmula SUNE variando a posição conforme o caso, até orientar todas as quinas do topo.",
+      "Agora vamos orientar as quinas do topo usando a fórmula SUNE ou sua variação. Posicione o cubo conforme o caso e aplique a fórmula até todas ficarem corretas.",
     casos: [
       {
         formula: "R U R' U R U2 R'",
-        texto: "Duas quinas amarelas faltando (frente e direita).",
+        texto: "Duas quinas precisam ser orientadas: frente e direita.",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso06/Passo01.png"),
       },
       {
-        formula: "R U R' U R U2 R'",
+        formula: "Repetir",
         texto:
-          "Duas quinas na esquerda (uma olhando para você e outra para a frente).",
+          "Duas quinas na esquerda precisam de ajuste (uma olhando para você e outra para a frente).",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso06/Passo02.png"),
       },
       {
-        formula: "R U R' U R U2 R'",
-        texto: "Duas quinas na frente, olhando para você.",
+        formula: "Ajuste frontal",
+        texto: "Duas quinas na frente ainda não estão orientadas corretamente.",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso06/Passo03.png"),
       },
       {
-        formula: "R U R' U R U2 R'",
+        formula: "Quatro quinas",
         texto:
-          "Quatro quinas: duas olhando para a direita e duas para a esquerda.",
+          "Quatro quinas precisam de orientação: duas à direita e duas à esquerda.",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso06/Passo04.png"),
       },
       {
-        formula: "R U R' U R U2 R'",
+        formula: "Variação esquerda",
         texto:
-          "Semelhante ao anterior, mas com duas quinas olhando para a esquerda (uma para você e outra para a frente).",
+          "Semelhante ao anterior, mas com duas quinas à esquerda (uma à sua frente e outra olhando para você).",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso06/Passo05.png"),
       },
       {
-        formula: "R U R' U R U2 R'",
+        formula: "anti-SUNE",
         texto:
-          "Anti-SUNE (variação): peixe com a cabeça à esquerda, 3 quinas erradas. Use a variação anti-sune.",
+          "Variação Anti-SUNE: peixe com a cabeça à esquerda, três quinas erradas. Use a fórmula anti-SUNE.",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso06/Passo06.png"),
       },
       {
-        formula: "R U R' U R U2 R'",
+        formula: "SUNE clássico",
         texto:
-          "SUNE (caso clássico): peixe clássico, 3 quinas erradas. Aplique SUNE até orientar tudo.",
+          "SUNE clássico: peixe clássico com três quinas erradas. Aplique a fórmula até todas estarem corretas.",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso06/Passo07.png"),
       },
       {
-        formula: "R U R' U R U2 R'",
+        formula: "Analisar",
         texto:
-          "Situação final: todas as quinas já orientadas, verifique se todas as peças estão corretas.",
+          "Situação final: todas as quinas orientadas, verifique se o topo está correto.",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso06/Passo08.png"),
       },
     ],
@@ -260,19 +260,19 @@ export const secoes = [
       {
         formula: "R B' R F2 R' B R F2 R2",
         texto:
-          "Antes de seguir, certifique-se de que todas as quinas estão nas posições corretas. Use U para alinhar, se necessário.",
+          "Apenas encontre um lado com 2 quinas da mesma cor e aplique a fórmula.",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso07/Passo01.png"),
       },
       {
-        formula: "R B' R F2 R' B R F2 R2",
+        formula: "Repetir",
         texto:
-          "Se encontrar um lado com 2 quinas da mesma cor, aplique a fórmula nessa posição.",
+          "Se você não encontrar nenhum lado com 2 quinas da mesma cor, aplique a mesma fórmula em qualquer posição e depois volte a procurar pelas 2 quinas.",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso07/Passo02.png"),
       },
       {
-        formula: "R B' R F2 R' B R F2 R2",
+        formula: "Analisar",
         texto:
-          "Caso não haja nenhum lado com 2 quinas iguais, aplique a fórmula em qualquer posição e depois verifique novamente.",
+          "Antes de seguir para o próximo passo, certifique-se de que todas as quinas estão nas posições corretas. Se necessário, faça o movimento U para alinhar as cores.",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso07/Passo03.png"),
       },
     ],
@@ -298,7 +298,7 @@ export const secoes = [
       {
         formula: "Sem face pronta",
         texto:
-          "Se nenhuma face estiver finalizada, aplique qualquer uma das fórmulas anteriores e depois encontre o lado correto.",
+          "Se nenhuma face estiver finalizada, aplique qualquer uma das fórmulas anteriores e depois encontre o caso correto.",
         imagem: require("../assets/MetodoBasico/MetodoBasicoPasso08/Passo03.png"),
       },
     ],
