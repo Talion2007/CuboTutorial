@@ -1,21 +1,30 @@
 // App.js
 import "react-native-gesture-handler";
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createStackNavigator } from "@react-navigation/stack";
 import {
   Image,
   StyleSheet,
-  Platform,
-  Linking,
   TouchableOpacity,
   Alert,
+  Linking,
+  View,
+  Text,
+  Animated,
+  Dimensions,
+  InteractionManager,
+  ActivityIndicator,
 } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import { useState } from "react";
+//Imagens
+import Aprenda from "./assets/OnBoarding/Aprenda.jpeg";
+import Explore from "./assets/OnBoarding/Explore.jpeg";
+import Inspire from "./assets/OnBoarding/Inspire.jpeg";
 
-// Importe todas as suas telas
+// Importa suas telas
 import TelaInicio from "./screens/TelaInicio";
 import Estrutura from "./screens/Estrutura";
 import PecasCubo3x3 from "./screens/Pecas";
@@ -37,7 +46,9 @@ import TelaIndisponivel from "./screens/TelaIndisponivel";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
+const { width } = Dimensions.get("window");
 
+// ---- Flows ----
 function EstruturaFlow() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
@@ -106,13 +117,157 @@ function CuboChatsFlow() {
   );
 }
 
+// ---- Onboarding Interno ----
+const onboardingPages = [
+  {
+    title: "Aprenda",
+    subtitle:
+      "Domine os fundamentos do Cubo Mágico e comece a resolver qualquer situação.",
+    image: Aprenda,
+  },
+  {
+    title: "Explore",
+    subtitle:
+      "Explore métodos avançados e personalize suas estratégias para cada desafio.",
+    image: Explore,
+  },
+  {
+    title: "Inspire",
+    subtitle:
+      "Compartilhe seus resultados e inspire outros a se tornarem mestres do Cubo.",
+    image: Inspire,
+  },
+];
+
+const resetOnboarding = async () => {
+  await AsyncStorage.removeItem("hasSeenOnboarding");
+  alert("Onboarding resetado! Reinicie o app para testar novamente.");
+};
+
+function Onboarding({ onFinish }) {
+  const [pageIndex, setPageIndex] = useState(0);
+  const opacity = useRef(new Animated.Value(0)).current;
+  const imageY = useRef(new Animated.Value(40)).current;
+  const titleY = useRef(new Animated.Value(40)).current;
+  const subtitleY = useRef(new Animated.Value(40)).current;
+
+  useEffect(() => {
+    InteractionManager.runAfterInteractions(() => animateIn());
+  }, [pageIndex]);
+
+  const animateIn = () => {
+    opacity.setValue(0);
+    imageY.setValue(40);
+    titleY.setValue(40);
+    subtitleY.setValue(40);
+
+    Animated.stagger(200, [
+      Animated.timing(opacity, {
+        toValue: 1,
+        duration: 400,
+        useNativeDriver: true,
+      }),
+      Animated.timing(imageY, {
+        toValue: 0,
+        duration: 400,
+        useNativeDriver: true,
+      }),
+      Animated.timing(titleY, {
+        toValue: 0,
+        duration: 400,
+        useNativeDriver: true,
+      }),
+      Animated.timing(subtitleY, {
+        toValue: 0,
+        duration: 400,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  };
+
+  const nextPage = async () => {
+    if (pageIndex < onboardingPages.length - 1) {
+      setPageIndex(pageIndex + 1);
+    } else {
+      await AsyncStorage.setItem("hasSeenOnboarding", "true");
+      onFinish();
+    }
+  };
+
+  const previousPage = () => {
+    if (pageIndex > 0) setPageIndex(pageIndex - 1);
+  };
+
+  return (
+    <View style={stylesOnboarding.container}>
+      <Animated.View
+        style={[
+          stylesOnboarding.page,
+          { opacity, transform: [{ translateY: imageY }] },
+        ]}
+      >
+        <Image
+          source={onboardingPages[pageIndex].image}
+          style={stylesOnboarding.image}
+        />
+        <Animated.Text
+          style={[
+            stylesOnboarding.title,
+            { opacity, transform: [{ translateY: titleY }] },
+          ]}
+        >
+          {onboardingPages[pageIndex].title}
+        </Animated.Text>
+        <Animated.Text
+          style={[
+            stylesOnboarding.subtitle,
+            { opacity, transform: [{ translateY: subtitleY }] },
+          ]}
+        >
+          {onboardingPages[pageIndex].subtitle}
+        </Animated.Text>
+      </Animated.View>
+      <View style={stylesOnboarding.buttonContainer}>
+        <TouchableOpacity onPress={nextPage} style={stylesOnboarding.button}>
+          <Text style={stylesOnboarding.buttonText}>
+            {pageIndex === onboardingPages.length - 1 ? "Começar" : "Próximo"}
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+}
+
+// ---- Componente Principal App ----
 export default function App() {
+  const [loading, setLoading] = useState(true);
+  const [showOnboarding, setShowOnboarding] = useState(false);
+
+  useEffect(() => {
+    AsyncStorage.getItem("hasSeenOnboarding").then((value) => {
+      if (value === null) setShowOnboarding(true);
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return (
+      <ActivityIndicator
+        size="large"
+        style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
+      />
+    );
+  }
+
+  if (showOnboarding) {
+    return <Onboarding onFinish={() => setShowOnboarding(false)} />;
+  }
+
   return (
     <NavigationContainer>
       <Drawer.Navigator
         initialRouteName="Início"
         screenOptions={{
-          // Mantenha todas as suas opções de estilo aqui
           drawerStyle: {
             backgroundColor: "#E06942",
             width: 275,
@@ -207,4 +362,44 @@ const styles = StyleSheet.create({
     margin: 12,
     resizeMode: "contain",
   },
+});
+
+const stylesOnboarding = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingVertical: 50,
+  },
+  page: { width, alignItems: "center", paddingHorizontal: 30 },
+  image: {
+    width: "100%",
+    height: "60%",
+    marginBottom: 40,
+    borderRadius: 10,
+    marginTop: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "600",
+    marginBottom: 20,
+    textAlign: "center",
+  },
+  subtitle: { fontSize: 16, color: "#555", textAlign: "center" },
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+    paddingHorizontal: 20,
+  },
+  button: {
+    backgroundColor: "#2a9d8f",
+    padding: 15,
+    borderRadius: 10,
+    marginBottom: 20,
+    flex: 1,
+    marginHorizontal: 5,
+  },
+  buttonText: { color: "#fff", fontSize: 16, textAlign: "center" },
 });
