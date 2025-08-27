@@ -284,6 +284,11 @@ export default function App() {
                   "Repositório",
                   `\nVocê será redirecionado para uma aplicação externa, onde poderá baixar versões mais recentes, ou testar versões mais antigas. \n\nVocê deseja abrir o repositório de versões do aplicativo? \n`,
                   [
+                    {
+                      text: "+",
+                      onPress: () =>
+                        AsyncStorage.removeItem("hasSeenOnboarding"),
+                    },
                     { text: "Cancelar", style: "cancel" },
                     {
                       text: "Abrir",
@@ -394,7 +399,7 @@ const stylesOnboarding = StyleSheet.create({
     paddingHorizontal: 20,
   },
   button: {
-    backgroundColor: "#2a9d8f",
+    backgroundColor: "#E06942",
     padding: 15,
     borderRadius: 10,
     marginBottom: 20,
